@@ -27,7 +27,7 @@ int main(void)
 					putchar((char) k);
 					putchar((char) l);
 
-					if (i < 58 || j < 57 || k < 58 || l < 58)
+					if (i != 57 || j != 56 || k != 57 || l != 57)
 					{
 						comma = 44;
 						putchar((char) comma);
