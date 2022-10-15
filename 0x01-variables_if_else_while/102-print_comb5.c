@@ -7,15 +7,16 @@
  */
 int main(void)
 {
-	int comma, i, j, k, l,  newline, space;
+	int comma, i, j, k, l, n,  newline, space;
 
 	for (i = 48; i < 58; i++)
 	{
 		for (j = 48; j < 58; j++)
 		{
+			n = j + 1;
 			for (k = i; k < 58; k++)
 			{
-				for (l = j + 1; l < 58; l++)
+				for (l = n; l < 58; l++)
 				{
 					putchar((char) i);
 					putchar((char) j);
@@ -34,6 +35,8 @@ int main(void)
 						putchar((char) space);
 					}
 				}
+
+				n = 48;
 			}
 		}
 	}
