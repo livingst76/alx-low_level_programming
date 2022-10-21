@@ -7,9 +7,7 @@
  */
 int main(void)
 {
-	long fibonacci[3], sum;
-
-	sum = 0;
+	int fibonacci[3], sum;
 
 	fibonacci[0] = 0;
 	fibonacci[1] = 1;
@@ -26,6 +24,6 @@ int main(void)
 		}
 	}
 
-	printf("%li\n", sum);
+	printf("%i\n", sum);
 	return (0);
 }
