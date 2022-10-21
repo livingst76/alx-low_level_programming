@@ -9,6 +9,8 @@ int main(void)
 {
 	long fibonacci[3], sum;
 
+	sum = 0;
+
 	fibonacci[0] = 0;
 	fibonacci[1] = 1;
 
