@@ -15,20 +15,17 @@ void times_table(void)
 		for (j = 0; j < 10; j++)
 		{
 			result = i * j;
-			if (result < 10 && j > 0 && j < 9)
+			if (result < 10 && j > 0)
 			{
 				_putchar(' ');
 				_putchar(' ');
 				_putchar(result + '0');
-				_putchar(',');
+				if (j < 9)
+				{
+					_putchar(',');
+				}
 			}
-			else if (result < 10 && j > 0 && j > 8)
-			{
-				_putchar(' ');
-				_putchar(' ');
-				_putchar(result + '0');
-			}
-			else if (result > 9 && j > 0 && j < 9)
+			else if (result > 9 && j > 0)
 			{
 				digit1 = result / 10;
 				digit2 = result % 10;
@@ -36,16 +33,10 @@ void times_table(void)
 				_putchar(' ');
 				_putchar(digit1 + '0');
 				_putchar(digit2 + '0');
-				_putchar(',');
-			}
-			else if (result > 9 && j > 0 && j > 8)
-			{
-				digit1 = result / 10;
-				digit2 = result % 10;
-
-				_putchar(' ');
-				_putchar(digit1 + '0');
-				_putchar(digit2 + '0');
+				if (j < 9)
+				{
+					_putchar(',');
+				}
 			}
 			else
 			{
