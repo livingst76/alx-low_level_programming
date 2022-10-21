@@ -15,11 +15,17 @@ int main(void)
 	for (i = 2; i < 52; i++)
 	{
 		fibonacci[2] = fibonacci[1] + fibonacci[0];
-		printf("%li, ", fibonacci[2]);
+		if (i < 51)
+		{
+			printf("%li, ", fibonacci[2]);
+		}
+		else
+		{
+			printf("%li\n", fibonacci[2]);
+		}
+
 		fibonacci[0] = fibonacci[1];
 		fibonacci[1] = fibonacci[2];
 	}
-	printf("\n");
-
 	return (0);
 }
