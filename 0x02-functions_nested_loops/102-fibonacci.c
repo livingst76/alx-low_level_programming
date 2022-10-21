@@ -7,15 +7,17 @@
  */
 int main(void)
 {
-	long fibonacci[50], i;
+	long fibonacci[3], i;
 
 	fibonacci[0] = 0;
 	fibonacci[1] = 1;
 
 	for (i = 2; i < 52; i++)
 	{
-		fibonacci[i] = fibonacci[i -1] + fibonacci[i -2];
-		printf("%li, ", fibonacci[i]);
+		fibonacci[2] = fibonacci[1] + fibonacci[0];
+		printf("%li, ", fibonacci[2]);
+		fibonacci[0] = fibonacci[1];
+		fibonacci[1] = fibonacci[2];
 	}
 	printf("\n");
 
