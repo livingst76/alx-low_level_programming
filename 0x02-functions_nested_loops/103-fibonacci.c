@@ -14,7 +14,7 @@ int main(void)
 	fibonacci[0] = 0;
 	fibonacci[1] = 1;
 
-	while (fibonacci[2] < 4000000)
+	while (fibonacci[2] < 4000001)
 	{
 		fibonacci[2] = fibonacci[1] + fibonacci[0];
 		fibonacci[0] = fibonacci[1];
