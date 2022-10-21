@@ -7,20 +7,20 @@
  */
 int main(void)
 {
-	int fibonacci[3], sum;
+	int fibonacci, initial1, initial2, sum;
 
-	fibonacci[0] = 0;
-	fibonacci[1] = 1;
+	initial1 = 0;
+	initial2 = 1;
 
-	while (fibonacci[2] < 4000001)
+	while (fibonacci < 4000001)
 	{
-		fibonacci[2] = fibonacci[1] + fibonacci[0];
-		fibonacci[0] = fibonacci[1];
-		fibonacci[1] = fibonacci[2];
+		fibonacci = initial2 + initial1;
+		initial1 = initial2;
+		initial2 = fibonacci;
 
-		if (fibonacci[2] % 2 == 0)
+		if (fibonacci % 2 == 0)
 		{
-			sum = sum + fibonacci[2];
+			sum = sum + fibonacci;
 		}
 	}
 
