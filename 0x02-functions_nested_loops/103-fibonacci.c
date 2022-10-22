@@ -12,8 +12,7 @@ int main(void)
 	initial1 = 0;
 	initial2 = 1;
 
-	do
-	{
+	do {
 		fibonacci = initial2 + initial1;
 		initial1 = initial2;
 		initial2 = fibonacci;
@@ -22,8 +21,7 @@ int main(void)
 		{
 			sum = sum + fibonacci;
 		}
-	}
-	while (fibonacci < 4000001);
+	} while (fibonacci < 4000001);
 
 	printf("%i\n", sum);
 	return (0);
