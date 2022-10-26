@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_diagonal - print a triangle with height 'size'
+ * print_triangle - print a triangle with height 'size'
  *
  * @size: height
  */
