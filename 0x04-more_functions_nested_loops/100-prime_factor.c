@@ -32,13 +32,12 @@ int main(void)
 				if (boolean)
 				{
 					n = n / i;
-					printf("%lu, ", i);
 					break;
 				}
 			}
 		}
 	}
 
-	printf("\n");
+		printf("%lu\n", i);
 	return (0);
 }
