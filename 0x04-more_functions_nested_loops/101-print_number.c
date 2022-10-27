@@ -7,7 +7,7 @@
  */
 void print_number(int n)
 {
-	int a, b, c, d, e, m;
+	int m;
 
 	m = n;
 	if (n < 0)
@@ -16,7 +16,7 @@ void print_number(int n)
 		_putchar('-');
 	}
 
-	if (a > 0)
+	if (m >= 10000)
 	{
 		_putchar((m / 10000) + '0');
 		_putchar(((m / 1000) % 10) + '0');
@@ -24,20 +24,20 @@ void print_number(int n)
 		_putchar(((m / 10) %  10) + '0');
 		_putchar((m % 10) + '0');
 	}
-	else if (b > 0)
+	else if (m >= 1000)
 	{
 		_putchar(((m / 1000) % 10) + '0');
 		_putchar(((m / 100) % 10) + '0');
 		_putchar(((m / 10) % 10) + '0');
 		_putchar((m % 10) + '0');
 	}
-	else if (c > 0)
+	else if (m >= 100)
 	{
 		_putchar(((m / 100) % 10) + '0');
 		_putchar(((m / 10) % 10) + '0');
 		_putchar((m % 10) + '0');
 	}
-	else if (d > 0)
+	else if (m >= 10)
 	{
 		_putchar(((m / 10) % 10) + '0');
 		_putchar((m % 10) + '0');
