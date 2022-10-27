@@ -7,8 +7,8 @@
  */
 void print_number(int n)
 {
-	int i, k, m, y, p;
-
+	int k, m;
+	unsigned int i, y, p;
 	y = 0;
 	p = 1;
 	k = m = n;
