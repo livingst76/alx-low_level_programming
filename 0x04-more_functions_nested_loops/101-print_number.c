@@ -30,10 +30,9 @@ void print_number(int n)
 		p *= 10;
 	}
 
-	while (y > -1)
-	{
+	do{
 		_putchar(((k / p) % 10) + '0');
 		p /= 10;
 		y--;
-	}
+	}while (y > -1);
 }
