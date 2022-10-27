@@ -9,23 +9,22 @@
  */
 void print_number(int n)
 {
-	int m, p;
-	unsigned int i, y;
+	unsigned int i, k, p, y;
+	int m;
 
 	y = 0;
 	p = 1;
-	m = n;
+	k = m = n;
 
 	if (n < 0)
 	{
-		 n *= -1;
-		 m = n;
+		k = m = n * -1;
 		_putchar('-');
 	}
 
-	while (n > 9)
+	while (m > 9)
 	{
-		n /= 10;
+		m /= 10;
 		y++;
 	}
 
@@ -36,7 +35,7 @@ void print_number(int n)
 
 	for (i = 0; i <= y; i++)
 	{
-		_putchar(((m / p) % 10) + '0');
+		_putchar(((k / p) % 10) + '0');
 		p /= 10;
 	}
 }
