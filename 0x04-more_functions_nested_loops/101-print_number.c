@@ -4,6 +4,8 @@
  * print_number - displays input (number) as output
  *
  * @n: integer/number
+ *
+ * Return: returns no value
  */
 void print_number(int n)
 {
