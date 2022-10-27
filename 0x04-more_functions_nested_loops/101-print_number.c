@@ -14,16 +14,13 @@ void print_number(int n)
 
 	y = 0;
 	p = 1;
+	m = n;
 
 	if (n < 0)
 	{
 		 n *= -1;
 		 m = n;
 		_putchar('-');
-	}
-	else
-	{
-		m = n;
 	}
 
 	while (n > 9)
