@@ -12,12 +12,15 @@ void print_number(int n)
 
 	y = 0;
 	p = 1;
-	k = m = n;
 
 	if (n < 0)
 	{
 		k = m = n * -1;
 		_putchar('-');
+	}
+	else
+	{
+		k = m = n;
 	}
 
 	while (m > 9)
