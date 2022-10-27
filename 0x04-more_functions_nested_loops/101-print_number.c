@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * print_number - displays input (number) as output
@@ -7,43 +8,30 @@
  */
 void print_number(int n)
 {
-	int m;
+	int i, k, m, y = 0, p = 1;
 
-	m = n;
+	k = m = n;
 	if (n < 0)
 	{
-		m = n * -1;
+		k = m = n * -1;
 		_putchar('-');
 	}
 
-	if (m >= 10000)
+	while(m > 9)
 	{
-		_putchar((m / 10000) + '0');
-		_putchar(((m / 1000) % 10) + '0');
-		_putchar(((m / 100) % 10) + '0');
-		_putchar(((m / 10) %  10) + '0');
-		_putchar((m % 10) + '0');
+		m /= 10;
+		y++;
 	}
-	else if (m >= 1000)
+
+	for (i = 0; i < y; i++)
 	{
-		_putchar(((m / 1000) % 10) + '0');
-		_putchar(((m / 100) % 10) + '0');
-		_putchar(((m / 10) % 10) + '0');
-		_putchar((m % 10) + '0');
+		p *= 10;
 	}
-	else if (m >= 100)
+
+	while (y > -1)
 	{
-		_putchar(((m / 100) % 10) + '0');
-		_putchar(((m / 10) % 10) + '0');
-		_putchar((m % 10) + '0');
-	}
-	else if (m >= 10)
-	{
-		_putchar(((m / 10) % 10) + '0');
-		_putchar((m % 10) + '0');
-	}
-	else
-	{
-		_putchar((m % 10) + '0');
+		_putchar(((k / p) % 10) + '0');
+		p /= 10;
+		y--;
 	}
 }
