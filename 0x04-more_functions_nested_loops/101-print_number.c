@@ -9,7 +9,7 @@
  */
 void print_number(int n)
 {
-	unsigned int i, k, p, y;
+	unsigned int i, k, p, x, y;
 	int m;
 
 	y = 0;
@@ -35,7 +35,8 @@ void print_number(int n)
 
 	for (i = 0; i <= y; i++)
 	{
-		_putchar(((k / p) % 10) + '0');
+		x = k / p;
 		p /= 10;
+		_putchar((x % 10) + '0');
 	}
 }
