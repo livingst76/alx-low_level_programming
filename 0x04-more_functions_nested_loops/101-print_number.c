@@ -17,12 +17,14 @@ void print_number(int n)
 
 	if (n < 0)
 	{
-		k = m = n * -1;
+		 m = n * -1;
+		 k = m;
 		_putchar('-');
 	}
 	else
 	{
-		k = m = n;
+		m = n;
+		k = m;
 	}
 
 	while (m > 9)
