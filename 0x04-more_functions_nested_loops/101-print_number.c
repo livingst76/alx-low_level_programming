@@ -9,8 +9,8 @@
  */
 void print_number(int n)
 {
-	unsigned int i, k, p, y;
-	int m;
+	unsigned int i, p, y;
+	int m, k;
 
 	y = 0;
 	p = 1;
