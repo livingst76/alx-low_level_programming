@@ -19,10 +19,14 @@ void print_rev(char *s)
 	for (i = len; i >= 0; i--)
 	{
 		--p;
-		_putchar(*p);
-		if (i == 0)
+		if (*p == '\0')
 		{
-			_putchar('\n');
+			;
+		}
+		else
+		{
+			_putchar(*p);
 		}
 	}
+	_putchar('\n');
 }
