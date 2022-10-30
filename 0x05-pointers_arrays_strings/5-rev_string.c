@@ -17,12 +17,16 @@ void rev_string(char *s)
 	}
 	n = len;
 
-  	for (n = len; n > 1; n -= 2)
+  	while (n > 1)
 	{
-		tmp = *p;
-		*p = *(p - n);
-		*(p - n) = tmp;
+		if (*p != '0')
+		{
+			tmp = *p;
+			*p = *(p - n);
+			*(p - n) = tmp;
+		}
 		i++;
 		p--;
+		n = n - 2;
 	}
 }
