@@ -17,6 +17,7 @@ void rev_string(char *s)
 	}
 	n = len;
 
+	p--;
 	while (n > 1)
 	{
 		if (*p != '0')
