@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * puts2 - print inputed string as output
+ * puts2 - prints odd indexed characters in a string
  *
  * @str: inputed string
  */
