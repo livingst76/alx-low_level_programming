@@ -11,7 +11,7 @@ void puts2(char *str)
 
 	if (*p == '\0')
 	{
-		_putchar('\0');
+		;
 	}
 	else
 	{
