@@ -4,7 +4,8 @@
 /**
  * print_array - prints n elemnets in an array
  *
- * @n - number of elements
+ * @n: number of elements
+ * @a: string/array of elments
  */
 void print_array(int *a, int n)
 {
@@ -12,13 +13,14 @@ void print_array(int *a, int n)
 
 	for (i = 0; i < n; i++)
 	{
-		if (i < n- 1)
+		if (i < n - 1)
 		{
 			printf("%i, ", *(a + i));
 		}
 		else
 		{
-			printf("%i\n", *(a + i));
+			printf("%i", *(a + i));
 		}
 	}
+	printf("\n");
 }
