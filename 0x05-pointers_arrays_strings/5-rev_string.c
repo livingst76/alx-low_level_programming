@@ -19,9 +19,12 @@ void rev_string(char *s)
 
 	while (n > 0)
 	{
-		tmp = *p;
-		*p = *(p - n);
-		*(p - n) = tmp;
+		if (*p != '0')
+		{
+			tmp = *p;
+			*p = *(p - n);
+			*(p - n) = tmp;
+		}
 		i++;
 		p--;
 		n = n - 2;
