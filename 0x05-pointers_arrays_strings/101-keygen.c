@@ -9,11 +9,21 @@
  */
 int main(void)
 {
-	unsigned int n;
+	char pass[60] = "\0";
+	char h[63] = "abcdefghijklmnopqrstuvwxyz0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+	int s = 0, i = 0, tempo = 0;
 
-	srand(time(0));
-	n = rand() - RAND_MAX / 2;
-	printf("%u\n", n);
+	srand(time(NULL));
+	while (s < 2772 - 'z')
+	{
+		tempo = rand() % 62;
+		s += h[tempo];
+		pass[i++] = h[tempo];
+	}
 
+	pass[i] = (2772 - s);
+	pass[i + 1] = '\0';
+
+	printf("%s", pass);
 	return (0);
 }
