@@ -1,5 +1,5 @@
 #include "main.h"
-#include <stdio.h>
+
 /**
  * rev_string - print inputed string as output in reverse order
  *
