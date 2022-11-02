@@ -10,30 +10,39 @@
  */
 int _atoi(char *s)
 {
-	int boolean = 0, i = -1;
+	int alnum = 0, boolean = 0;
 	unsigned int n1 = 0;
 
 	while (*s != '\0')
 	{
 		if (*s >= '0' && *s <= '9')
 		{
-			i++;
 			n1 = (n1 * 10) + ((int) *s - 48);
-
-			if (*(s - 1) == '-')
-			{
-				boolean = 1;
-			}
-
 			if (*(s + 1) < '0' || *(s + 1) > '9')
 			{
+				while (*s != '\0')
+				{
+					if ((*s >= 'A' && *s <= 'z') || (*s >= 'a' && *s <= 'z'))
+					{
+						alnum = 1;
+					}
+					s++;
+				}
 				break;
 			}
+		}
+		else if ((*s >= 'A' && *s <= 'z') || (*s >= 'a' && *s <= 'z'))
+		{
+			alnum = 1;
+		}
+		else if (*s == '-')
+		{
+			boolean = 1;
 		}
 		s++;
 	}
 
-	if (boolean)
+	if (boolean && !alnum)
 	{
 		return (n1 * -1);
 	}
