@@ -12,7 +12,7 @@ int main(void)
 	unsigned int n;
 
 	srand(time(0));
-	n = rand();
+	n = rand() - RAND_MAX / 2;
 	printf("%u\n", n);
 
 	return (0);
