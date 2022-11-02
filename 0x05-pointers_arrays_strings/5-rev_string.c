@@ -15,11 +15,15 @@ void rev_string(char *s)
 		len++;
 		p++;
 	}
-	n = len - 2;
+	n = len + 1;
 
 	while (n >= 1)
 	{
-		if (*p != '0')
+		if (n == len + 1)
+		{
+			*(p - n) = *p;
+		}
+		else
 		{
 			tmp = *p;
 			*p = *(p - n);
@@ -27,6 +31,6 @@ void rev_string(char *s)
 		}
 		i++;
 		p--;
-		n = n - 2;
+		n -= 2;
 	}
 }
