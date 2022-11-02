@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include <stdio.h>
 /**
  * rev_string - print inputed string as output in reverse order
  *
@@ -8,7 +8,7 @@
 void rev_string(char *s)
 {
 	char tmp, *p = s;
-	int i = 0, n, len = 1;
+	int i = 0, len = 0, n;
 
 	while (*p != '\0')
 	{
@@ -17,7 +17,7 @@ void rev_string(char *s)
 	}
 	n = len;
 
-	while (n > 1)
+	while (n >= 1)
 	{
 		if (*p != '0')
 		{
