@@ -5,7 +5,7 @@
  * _strcpy - copy string
  *
  * @src: pointer to the string to be copied
- * @drc: string to be copied to
+ * @dest: string to be copied to
  *
  * Return: the pointer to dest;
  */
@@ -21,5 +21,5 @@ char *_strcpy(char *dest, char *src)
 
 	dest[i] = '\0';
 	cp = dest;
-    return (cp);
+	return (cp);
 }
