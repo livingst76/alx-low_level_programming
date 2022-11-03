@@ -10,8 +10,8 @@ void reverse_array(int *a, int n)
 {
 	int i = 0, j, tmp;
 
-	j = n / 2;
 	n--;
+	j = n / 2;
 
 	while (j >= 0)
 	{
