@@ -9,26 +9,23 @@
  *
  * Return: cnt, pointer to dest
  */
-char *_strcat(char *dest,  char *src)
+char *_strcat(char *dest, char *src)
 {
 	int len = 0, i = 0;
 
-	while (*dest != '\0')
+	while (*(dest + len) != '\0')
 	{
-		dest++;
 		len++;
 	}
-
 	while (i >= 0)
 	{
-		*(dest + len) = *src;
-		if (*src == '\0')
+		*(dest + len) = *(src + i);
+		if (*(src + i) == '\0')
 		{
 			break;
 		}
-		src++;
 		len++;
+		i++;
 	}
-
 	return (dest);
 }
