@@ -11,19 +11,7 @@
 char *leet(char *s)
 {
 	int i, n = 0;
-	char leet[5], rp[5];
-
-	leet[0] = 'A';
-	leet[1] = 'E';
-	leet[2] = 'O';
-	leet[3] = 'T';
-	leet[4] = 'L';
-
-	rp[0] = '4';
-	rp[1] = '3';
-	rp[2] = '0';
-	rp[3] = '7';
-	rp[4] = '1';
+	char leet[5] = "AEOTL", rp[5] = "43071";
 
 	while (s[n] != '\0')
 	{
