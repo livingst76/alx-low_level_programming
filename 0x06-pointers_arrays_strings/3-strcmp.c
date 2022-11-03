@@ -1,4 +1,5 @@
 #include "main.h"
+#include <stdio.h>
 
 /**
  * _strcmp - compares two strings
@@ -33,11 +34,15 @@ int _strcmp(char *s1, char *s2)
 
 	if (diff > 0 && len1 > len2)
 	{
-		boolean = 15;
+		boolean = s1[len1 - 1] - 48;
 	}
 	else if (diff > 0 && len1 < len2)
 	{
-		boolean = -15;
+		boolean = 48 - s2[len2 - 1];
+	}
+	else if (diff > 0 && len1 == len2)
+	{
+		boolean = s1[len1 - 1] - s2[len2 - 1];
 	}
 
 	return (boolean);
