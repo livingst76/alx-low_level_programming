@@ -29,7 +29,7 @@ char *leet(char *s)
 	{
 		for (i = 0; i < 5; i++)
 		{
-			if((s[n] - leet[i]) % 32 == 0)
+			if ((s[n] - leet[i]) % 32 == 0)
 			{
 				s[n] = rp[i];
 				break;
