@@ -26,7 +26,11 @@ char *infinite_add(char *n1, char *n2, char *r, int size_r)
 	}
 	if (len1 >= size_r  || len2 >= size_r || len1 == size_r - 1)
 		return (r = NULL);
-	for (n = len1, r[n + 1] = '\0' ; len1 >= 1 ||  len2 >= 1; n--)
+	if (len1 > len2)
+		n = len1;
+	else
+		n = len2;
+	for (r[n + 1] = '\0' ; len1 >= 1 ||  len2 >= 1; n--)
 	{
 		if (len1 < 1)
 		{
