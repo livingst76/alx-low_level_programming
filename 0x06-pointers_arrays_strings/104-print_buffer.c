@@ -5,7 +5,7 @@
 /**
  * print_buffer - prints the content of a buffer 10 bytes per line;
  *                hexadecimal position of the first byte of each line;
- *                hexadecimal content (2 chars) of the buffer, 2 bytes at a time
+ *                hexadecimal content (2 chars) of the buffer, 2 bytes at a go
  *                displays special (unprintable) characters as '.'
  *
  * @b: buffer
