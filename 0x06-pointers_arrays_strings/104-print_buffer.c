@@ -16,13 +16,15 @@ void print_buffer(char *b, int size)
 	int i = 0, n = 0;
 	char d = '.';
 
-	while (i < size)
+	if (size <= 0)
+		printf("\n");
+	while (size > 0 && i < size)
 	{
 		n = i;
 		printf("%08x: ", n);
 		for (i = n; i < n + 10; i++)
 		{
-			if (i < size || (i == size && i % 2 == 1))
+			if (i < size)
 			{
 				printf("%02x", b[i]);
 				if (i % 2 == 1)
