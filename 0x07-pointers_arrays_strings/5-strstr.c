@@ -1,6 +1,5 @@
 #include "main.h"
 #include <stddef.h>
-#include <stdio.h>
 
 /**
  * _strstr - find the first occurence of a substring in a string
@@ -36,8 +35,7 @@ char *_strstr(char *haystack, char *needle)
 			}
 			if (c == m)
 			{
-				printf("c: %u\nm: %u\n", c, m);
-				boolean = 1;
+			    boolean = 1;
 				break;
 			}
 		}
