@@ -1,5 +1,5 @@
 #include "main.h"
-
+#include <stddef.h>
 /**
  * _strchr - find the first occurence of a character in a string
  *
@@ -10,7 +10,7 @@
  */
 char *_strchr(char *s, char c)
 {
-	int boolean = 0, i = 0, j = 0;
+	int boolean = 0, i = 0;
 	char *p = s;
 
 	while (s[i] != '\0')
