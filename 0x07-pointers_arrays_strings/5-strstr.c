@@ -21,29 +21,29 @@ char *_strstr(char *haystack, char *needle)
 
 	for (i = 0; haystack[i] != '\0'; i++)
 	{
-		if (haystack[i] == needle[0])
+		for (j = 0; j < m; j++)
 		{
-			for (j = 0, n = i; j < m; j++, n++)
+			if (haystack[i] == needle[j])
 			{
-				if (haystack[n] == needle[j])
-					c++;
-				else
-				{
-					c = 0;
-					break;
-				}
-			}
-			if (c == m)
-			{
-			    boolean = 1;
+				boolean = 1;
 				break;
 			}
+			else
+				boolean = 0;
 		}
+
 		if (boolean)
+			c++;
+		else
+			c = 0;
+
+		if (c == 1)
+			n = i;
+		if (c == m)
 			break;
 	}
-	if (boolean)
-		return (&haystack[i]);
+	if (c == m)
+		return (&haystack[n]);
 	else
 		return (NULL);
 }
