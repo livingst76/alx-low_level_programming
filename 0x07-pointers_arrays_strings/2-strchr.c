@@ -12,7 +12,7 @@
 char *_strchr(char *s, char c)
 {
 	int boolean = 0, i = 0;
-    char  **p = &s;
+	char **p = &s;
 
 	while (s[i] != '\0')
 	{
@@ -28,5 +28,5 @@ char *_strchr(char *s, char c)
 	if (boolean)
 		return (*p);
 	else
-		return (*p = NULL);
+		return (NULL);
 }
