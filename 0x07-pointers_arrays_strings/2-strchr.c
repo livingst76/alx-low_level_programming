@@ -12,13 +12,13 @@
 char *_strchr(char *s, char c)
 {
 	int boolean = 0, i = 0;
-	char **p = &s;
+	char *p = s;
 
 	while (s[i] != '\0')
 	{
 		if (s[i] == c)
 		{
-			*p = &s[i];
+			p = &s[i];
 			boolean = 1;
 			break;
 		}
@@ -26,7 +26,7 @@ char *_strchr(char *s, char c)
 	}
 
 	if (boolean)
-		return (*p);
+		return (p);
 	else
 		return (NULL);
 }
