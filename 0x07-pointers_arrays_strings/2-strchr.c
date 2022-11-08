@@ -10,7 +10,7 @@
  */
 char *_strchr(char *s, char c)
 {
-	int boolean = 0, i = 0;
+	unsigned int boolean = 0, i = 0;
 	char *p = s;
 
 	while (s[i] != '\0')
