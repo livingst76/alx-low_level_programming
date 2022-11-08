@@ -40,7 +40,7 @@ char *_strstr(char *haystack, char *needle)
 		if (c == 1)
 			n = i;
 		if (c == m)
-			break;
+			return (&haystack[n]);
 	}
 	if (c == m)
 		return (&haystack[n]);
