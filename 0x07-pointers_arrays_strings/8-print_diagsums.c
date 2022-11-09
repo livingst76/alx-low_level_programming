@@ -11,20 +11,19 @@ void print_diagsums(int *a, int size)
 {
 	int i = 0, sum = 0;
 
-		while (i < size * size)
-		{
-			sum = sum + a[i];
-		    i += size + 1;
-		}
-		printf("%i, ", sum);
+	while (i < size * size)
+	{
+		sum = sum + a[i];
+		i += size + 1;
+	}
+	printf("%i, ", sum);
 
-		sum = 0;
-		i -= size * 2;
-		while (i >= 0)
-		{
-			sum = sum + a[i];
-		    i -= size -1;
-		}
-		printf("%i\n", sum);
-}
+	sum = 0;
+	i -= size * 2;
+	while (i >= 0)
+	{
+		sum = sum + a[i];
+		i -= size -1;
+	}
+	printf("%i\n", sum);
 }
