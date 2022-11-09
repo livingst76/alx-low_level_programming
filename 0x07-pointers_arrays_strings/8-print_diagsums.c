@@ -26,8 +26,8 @@ void print_diagsums(int *a, int size)
 		}
 		n = j - (size * 2);
 		if (!i)
-			printf("%lu,  ", sum);
+			printf("%lu", sum);
 		else
-			printf("%lu\n", sum);
+			printf(", %lu\n", sum);
 	}
 }
