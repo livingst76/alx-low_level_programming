@@ -9,25 +9,15 @@
  */
 void print_diagsums(int *a, int size)
 {
-	int i, j, n = 0;
-	unsigned long sum = 0;
+	int i;
+	unsigned long sum1 = 0, sum2 = 0;
 
-	for (i = 0; i < 2; i++)
+	for (i = 0; i < size * size; i++)
 	{
-		j = n;
-		sum = 0;
-		while (j < size * size && j >= 0)
-		{
-			sum = sum + a[j];
-			if (n == (size * size) - size)
-				j -= size - 1;
-			else
-				j += size + 1;
-		}
-		n = j - (size * 2);
-		if (!i)
-			printf("%lu", sum);
-		else
-			printf(", %lu\n", sum);
+		if (!(i % (size + 1)))
+			sum1 += a[i];
+		if (!(i % (size - 1)) && i > 0 && i < size * size - 1)
+			sum2 += a[i];
 	}
+	printf("%lu, %lu\n", sum1, sum2);
 }
