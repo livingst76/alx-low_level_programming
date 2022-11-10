@@ -7,7 +7,9 @@
  * @x: integer to be raised
  * @y: power
  *
- * Result: n, result, -1 if y is less than 0, 1 if y is equal to zero
+ * Return: value of x rasied to the power of y;
+ *         -1 if y is less than 0;
+ *         and 1 if y is equal to zero
  */
 int _pow_recursion(int x, int y)
 {
