@@ -26,6 +26,21 @@ int is_palindrome(char *s)
 }
 
 /**
+ * _strlen_recursion - calculate the length of a string;
+ *
+ * @s: string
+ *
+ * Return: len, length of string
+ */
+int _strlen_recursion(char *s)
+{
+	if (*s == '\0')
+		return (0);
+	else
+		return (1 + _strlen_recursion(s + 1));
+}
+
+/**
  * palindromity - test string for palindromity
  *
  * @s: string
@@ -48,19 +63,4 @@ void palindromity(char *s, int i, int j, int *b)
 	}
 
 	palindromity(s + 1, i - 2, j, b);
-}
-
-/**
- * _strlen_recursion - calculate the length of a string;
- *
- * @s: string
- *
- * Return: len, length of string
- */
-int _strlen_recursion(char *s)
-{
-	if (*s == '\0')
-		return (0);
-	else
-		return (1 + _strlen_recursion(s + 1));
 }
