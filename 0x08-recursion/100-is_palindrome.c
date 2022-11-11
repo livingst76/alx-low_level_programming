@@ -1,6 +1,6 @@
 #include "main.h"
 
-void palindromity(char *s, int i, int j, int *boolean);
+void palindromity(char *s, int i, int *b);
 int _strlen_recursion(char *s);
 
 /**
@@ -18,7 +18,7 @@ int is_palindrome(char *s)
 		return (1);
 
 	len = _strlen_recursion(s);
-	palindromity(s, len - 1, len, &boolean);
+	palindromity(s, len - 1, &boolean);
 	if (boolean)
 		return (1);
 	else
@@ -45,10 +45,9 @@ int _strlen_recursion(char *s)
  *
  * @s: string
  * @i: string index
- * @j: length of string
  * @b: pointer to boolean
  */
-void palindromity(char *s, int i, int j, int *b)
+void palindromity(char *s, int i, int *b)
 {
 	if (i < 0)
 		return;
@@ -62,5 +61,5 @@ void palindromity(char *s, int i, int j, int *b)
 		return;
 	}
 
-	palindromity(s + 1, i - 2, j, b);
+	palindromity(s + 1, i - 2, b);
 }
