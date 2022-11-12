@@ -11,7 +11,8 @@
  */
 int main(int argc, char *argv[])
 {
-	int amount, change;
+	long amount;
+	unsigned int change;
 
 	if (argc != 2)
 	{
@@ -35,6 +36,6 @@ int main(int argc, char *argv[])
 	amount = amount - ((amount / 2) * 2);
 	change = change + (amount / 1);
 	amount = amount - ((amount / 1) * 1);
-	printf("%i\n", change);
+	printf("%u\n", change);
 	return (0);
 }
