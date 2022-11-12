@@ -18,7 +18,7 @@ int wildcmp(char *s1, char *s2)
 
 	if (!*s1 && !*s2)
 		return (1);
-	else if (!*s1 || !*s2)
+	else if (!*s2)
 		return (0);
 
 	len1 = strlen_recursion(s1, 0);
@@ -66,17 +66,20 @@ int strlen_recursion(char *s, int *n)
  */
 void is_wildcmp(char *s, char *t, int i, int j, int n, int *b)
 {
-	if (i < 0 || j < 0)
-		return;
-
-	if (t[n] == '*' && t[0] == '*')
+	if ((t[n] == '*' && *t == '*') ||  (*t == '*' && !n))
 	{
 		*b = 1;
 		return;
 	}
 
+	if (i < 0 || j < 0)
+		return;
+
 	if (t[i] == '*')
-		is_wildcmp(s, t, --i, j, n, b);
+	{
+		*b = 1;
+	    is_wildcmp(s, t, --i, j, n, b);
+	}
 	else if (t[i] != '*' && t[i + 1] == '*')
 	{
 		if (t[i] == s[j])
