@@ -1,4 +1,4 @@
-#include <ctype.h>
+ #include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 
@@ -12,15 +12,18 @@
  */
 int main(int argc, char *argv[])
 {
-	int i, j, result = 0;
+	unsigned int m, result = 0;
+	int i, j;
 
 	if (argc == 1)
 	{
 		printf("0\n");
 		return (1);
 	}
+
 	for (i = 1; i < argc; i++)
 	{
+		m = 0;
 		for (j = 0; argv[i][j] != '\0'; j++)
 		{
 			if (!isdigit(argv[i][j]))
@@ -28,8 +31,9 @@ int main(int argc, char *argv[])
 				printf("Error\n");
 				return (1);
 			}
+			m = (m * 10) + (argv[i][j] - 48);
 		}
-		result = result + atoi(argv[i]);
+		result = result + m;
 	}
 
 	printf("%i\n", result);
