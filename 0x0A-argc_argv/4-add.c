@@ -12,10 +12,9 @@
  */
 int main(int argc, char *argv[])
 {
-	unsigned int m, result = 0;
-	int i, j;
+	int i, j, sum = 0;
 
-	if (argc == 1)
+	if (argc < 2)
 	{
 		printf("0\n");
 		return (2);
@@ -23,7 +22,6 @@ int main(int argc, char *argv[])
 
 	for (i = 1; i < argc; i++)
 	{
-		m = 0;
 		for (j = 0; argv[i][j] != '\0'; j++)
 		{
 			if (!isdigit(argv[i][j]))
@@ -31,11 +29,10 @@ int main(int argc, char *argv[])
 				printf("Error\n");
 				return (1);
 			}
-			m = (m * 10) + (argv[i][j] - 48);
 		}
-		result = result + m;
+		sum += atoi(argv[i]);
 	}
 
-	printf("%i\n", result);
+	printf("%i\n", sum);
 	return (0);
 }
