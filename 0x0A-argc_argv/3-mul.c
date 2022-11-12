@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 
 /**
  * main - print the name of the program
@@ -8,9 +9,9 @@
  *
  * Return: 0 (success) else, 1 (failure)
  */
-int main(__attribute__ ((unused)) int argc, char *argv[])
+int main(int argc, char *argv[])
 {
-	int i, j, m, result = 0;
+	long i, result = 1;
 
 	if (argc > 3 || argc < 3)
 	{
@@ -19,13 +20,8 @@ int main(__attribute__ ((unused)) int argc, char *argv[])
 	}
 
 	for (i = 1; i < 3; i++)
-	{
-		m = 0;
-		for (j = 0; argv[i][j] != '\0'; j++)
-			m = (m * 10) + (argv[i][j] - 48);
-		result = result + m;
-	}
+		result = result * atoi(argv[i]);
 
-	printf("%i\n", result);
+	printf("%li\n", result);
 	return (0);
 }
