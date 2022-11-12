@@ -20,6 +20,11 @@ int main(int argc, char *argv[])
 	}
 
 	amount = atoi(argv[1]);
+	if (amount < 0)
+	{
+		printf("0\n");
+		return (2);
+	}
 	change = amount / 25;
 	amount = amount - ((amount / 25) * 25);
 	change = change + (amount / 10);
