@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 	}
 
 	amount = atoi(argv[1]);
-    change = amount / 25;
+	change = amount / 25;
 	amount = amount - ((amount / 25) * 25);
 	change = change + (amount / 10);
 	amount = amount - ((amount / 10) * 10);
