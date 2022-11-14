@@ -27,7 +27,7 @@ char **strtow(char *str)
 			h++;
 		}
 	}
-	p = malloc(h * sizeof(char *) + 1);
+	p = malloc(h * sizeof(char) + 1);
 	if (!p)
 		return (NULL);
 	for (i = 0; i < h; i++)
