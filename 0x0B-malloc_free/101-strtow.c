@@ -12,7 +12,7 @@
 char **strtow(char *str)
 {
 	char **p;
-	int a[100], h = 0, i, j, n, w;
+	int a[100], h = 0, i = 0, j = 0, n = 0, w = 0;
 
 	if (!str || !*str)
 		return (NULL);
@@ -28,7 +28,7 @@ char **strtow(char *str)
 	}
 	if (!h)
 		return (NULL);
-	p = malloc((h + 1) * sizeof(char *));
+	p = (char **) malloc((h + 1) * sizeof(char *));
 	if (!p)
 		return (NULL);
 	for (i = 0; i < h; i++)
@@ -36,7 +36,7 @@ char **strtow(char *str)
 		w = 0;
 		for (j = a[i]; str[j] != ' ' && str[j]; j++)
 			w++;
-	    p[i] = malloc(w * sizeof(char) + 1);
+	    p[i] = (char *) malloc((w + 1) * sizeof(char));
 		if (!p[i])
 		{
 			i++;
