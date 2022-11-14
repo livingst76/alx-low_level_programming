@@ -12,18 +12,28 @@
 char **strtow(char *str)
 {
 	char **p;
-	int a[100], h = 0, i, j, n, w;
+	int *a, h = 0, l = 0, i, j, n, w;
 
 	if (!str || !*str)
 		return (NULL);
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		if ((str[i] != ' ' && str[i - 1] == ' ') || (str[i] != ' ' && !i))
+	    if ((str[i] != ' ' && str[i - 1] == ' ') || (str[i] != ' ' && !i))
 		{
-			a[h] = i;
-			while (str[i] != ' ')
+		    while (str[i] != ' ')
 				i++;
 			h++;
+		}
+	}
+	a = malloc(h * sizeof(int));
+	for (i = 0; str[i] != '\0'; i++)
+	{
+	    if ((str[i] != ' ' && str[i - 1] == ' ') || (str[i] != ' ' && !i))
+		{
+			a[l] = i;
+			while (str[i] != ' ')
+				i++;
+			l++;
 		}
 	}
 	if (!h)
