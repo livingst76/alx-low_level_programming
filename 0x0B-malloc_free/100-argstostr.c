@@ -1,6 +1,5 @@
 #include "main.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 /**
  * argstostr - concatenate the arguments of a program
@@ -31,7 +30,5 @@ char *argstostr(int ac, char **av)
 		p[n] = '\n';
 		n++;
 	}
-
-	printf("initial: %i\nfinal: %i\n", len, n);
 	return (p);
 }
