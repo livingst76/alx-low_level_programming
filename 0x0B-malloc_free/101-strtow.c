@@ -47,5 +47,6 @@ char **strtow(char *str)
 		for (j = a[i], n = 0; n < w; j++, n++)
 			p[i][n] = str[j];
 	}
+	free(a);
 	return (p);
 }
