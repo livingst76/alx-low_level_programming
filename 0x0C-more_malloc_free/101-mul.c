@@ -42,6 +42,7 @@ int main(int ac, char *av[])
 		free(mul[i]);
 		i++;
 	}
+	free(mul[i]);
 	free(mul);
 	free(result);
 	return (0);
