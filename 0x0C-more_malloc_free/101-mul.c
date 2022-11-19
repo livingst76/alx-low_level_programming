@@ -35,8 +35,8 @@ int main(int ac, char *av[])
 	addition(mul, result, n, m);
 	printf("%s\n", result);
 
-	free(av[1]);
-	free(av[2]);
+	/*free(av[1]);
+	  free(av[2]);*/
 	while (mul[i])
 	{
 		free(mul[i]);
