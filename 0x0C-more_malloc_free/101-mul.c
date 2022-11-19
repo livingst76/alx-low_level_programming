@@ -35,6 +35,8 @@ int main(int ac, char *av[])
 	addition(mul, result, n, m);
 	printf("%s\n", result);
 
+	free(av[1]);
+	free(av[2]);
 	while (mul[i])
 	{
 		free(mul[i]);
@@ -78,12 +80,12 @@ void sort_numbers(char *av[], int *m, int *n)
 		*m = tmp;
 		temp = malloc((*n + 1) * sizeof(char));
 		if (!temp)
-			exit(-1);
+			exit(/*-1*/98);
 		for (i = 0; i < *n; i++)
 			temp[i] = av[1][i];
 		av[1] = malloc((*m + 1) * sizeof(char));
 		if (!av[2])
-			exit(-2);
+			exit(/*-2*/ 98);
 		for (i = 0; i < *m; i++)
 			av[1][i] = av[2][i];
 		for (i = 0; i < *n; i++)
@@ -108,10 +110,10 @@ char *malloc_sum(int max)
 
 	res = malloc(max * sizeof(char));
 	if (!res)
-		exit(97);
+		exit(/*97*/98);
 	for (i = 0; i < max; i++)
 		res[i] = 48;
-	res[i] = 0;
+	res[max] = 0;
 	return (res);
 }
 
@@ -130,20 +132,23 @@ char **matrix(int m, int n)
 
 	pp = malloc((n + 1) * sizeof(char *));
 	if (!pp)
-		exit(-3);
+		exit(/*-3*/98);
 
 	for (i = 0; i < n; i++)
 	{
 		pp[i] = malloc((m + 2) * sizeof(char));
 		if (!pp[i])
 		{
-			i++;
-			while (i--)
+			while (i >= 0)
+			{
 				free(pp[i]);
+				i--;
+			}
 			free(pp);
-			exit(-4);
+			exit(/*-4*/98);
 		}
 	}
+	pp[n] = NULL;
 	return (pp);
 }
 
