@@ -61,8 +61,8 @@ int main(int ac, char *av[])
  */
 void sort_numbers(char *av[], int *m, int *n)
 {
-	char *temp;
-	int tmp, i;
+	/*char *temp;
+	  int tmp, i;*/
 
 	while (av[1][*m] || av[2][*n])
 	{
@@ -78,19 +78,19 @@ void sort_numbers(char *av[], int *m, int *n)
 			*n = *n + 1;
 	}
 
-	if (*n > *m)
+	/*if (*n > *m)
 	{
 		tmp = *n;
 		*n = *m;
 		*m = tmp;
 		temp = malloc((*n + 1) * sizeof(char));
 		if (!temp)
-			exit(/*-1*/98);
+		exit(-1);
 		for (i = 0; i < *n; i++)
 			temp[i] = av[1][i];
 		av[1] = malloc((*m + 1) * sizeof(char));
 		if (!av[2])
-			exit(/*-2*/ 98);
+			exit(-2);
 		for (i = 0; i < *m; i++)
 			av[1][i] = av[2][i];
 		for (i = 0; i < *n; i++)
@@ -98,7 +98,7 @@ void sort_numbers(char *av[], int *m, int *n)
 		av[1][*m] = 0;
 		av[2][*n] = 0;
 		free(temp);
-	}
+	}*/
 }
 
 /**
