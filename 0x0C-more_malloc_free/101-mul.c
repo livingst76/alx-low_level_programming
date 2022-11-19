@@ -28,6 +28,11 @@ int main(int ac, char *av[])
 		exit(98);
 	}
 
+	if (av[1][0] == 48 || av[2][0] == 48)
+	{
+		printf("0\n");
+		exit(96);
+	}
 	sort_numbers(av, &m, &n);
 	mul = matrix(m, n);
 	result = malloc_sum(m + n);
@@ -42,7 +47,6 @@ int main(int ac, char *av[])
 		free(mul[i]);
 		i++;
 	}
-	free(mul[i]);
 	free(mul);
 	free(result);
 	return (0);
