@@ -27,12 +27,6 @@ int main(int ac, char *av[])
 		exit(98);
 	}
 
-	if (av[1][0] == 48 || av[2][0] == 48)
-	{
-		printf("0\n");
-		exit(96);
-	}
-
 	is_zero(av);
 	sort_numbers(av, &m, &n);
 	result = malloc_result(m + n + 1);
@@ -61,7 +55,7 @@ void is_zero(char *av[])
 
 	for (i = 0; av[1][i]; i++)
 	{
-		if (av[1][i] != '0')
+		if (av[1][i] != 48)
 		{
 			bn1 = 0;
 			break;
@@ -70,7 +64,7 @@ void is_zero(char *av[])
 
 	for (i = 0; av[2][i]; i++)
 	{
-		if (av[2][i] != '0')
+		if (av[2][i] != 48)
 		{
 			bn2 = 0;
 			break;
@@ -79,7 +73,7 @@ void is_zero(char *av[])
 	if (bn1 || bn2)
 	{
 		printf("0\n");
-		exit(0);
+		exit(15);
 	}
 }
 /**
