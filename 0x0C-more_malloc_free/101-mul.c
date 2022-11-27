@@ -19,15 +19,15 @@ void _is_zero(char *av[])
 {
 	int i, isn1 = 1, isn2 = 1;
 
-	for (i = 0; argv[1][i]; i++)
-		if (argv[1][i] != '0')
+	for (i = 0; av[1][i]; i++)
+		if (av[1][i] != '0')
 		{
 			isn1 = 0;
 			break;
 		}
 
-	for (i = 0; argv[2][i]; i++)
-		if (argv[2][i] != '0')
+	for (i = 0; av[2][i]; i++)
+		if (av[2][i] != '0')
 		{
 			isn2 = 0;
 			break;
@@ -82,8 +82,6 @@ int main(int ac, char *av[])
  */
 void sort_numbers(char *av[], int *m, int *n)
 {
-	int boolean = 0;
-
 	while (av[1][*m] || av[2][*n])
 	{
 		if (((av[1][*m] < 48 || av[1][*m] > 57) && av[1][*m]) ||
