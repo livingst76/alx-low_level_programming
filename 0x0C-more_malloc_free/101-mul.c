@@ -45,7 +45,7 @@ int main(int ac, char *av[])
 }
 
 /**
- * is_zero - check if any of the numbers is 0
+ * _is_zero - check if any of the numbers is 0
  *
  * @av: string of numbers
  */
@@ -54,20 +54,20 @@ void _is_zero(char *av[])
 	int i, isn1 = 1, isn2 = 1;
 
 	for (i = 0; av[1][i]; i++)
-		if (av[1][i] != '0')
+		if (av[1][i] != 48)
 		{
 			isn1 = 0;
 			break;
 		}
 
 	for (i = 0; av[2][i]; i++)
-		if (av[2][i] != '0')
+		if (av[2][i] != 48)
 		{
 			isn2 = 0;
 			break;
 		}
 
-	if (isn1 == 1 || isn2 == 1)
+	if (isn1 || isn2)
 	{
 		printf("0\n");
 		exit(0);
