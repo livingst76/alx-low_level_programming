@@ -15,6 +15,30 @@ void sort_numbers(char *av[], int *m, int *n);
  * Return: 0 on sucesss, exit status 98 on failure
  * Note: works only for positive numbers in base 10.
  */
+void _is_zero(char *argv[])
+{
+	int i, isn1 = 1, isn2 = 1;
+
+	for (i = 0; argv[1][i]; i++)
+		if (argv[1][i] != '0')
+		{
+			isn1 = 0;
+			break;
+		}
+
+	for (i = 0; argv[2][i]; i++)
+		if (argv[2][i] != '0')
+		{
+			isn2 = 0;
+			break;
+		}
+
+	if (isn1 == 1 || isn2 == 1)
+	{
+		printf("0\n");
+		exit(0);
+	}
+}
 int main(int ac, char *av[])
 {
 	int m = 0, n = 0;
@@ -57,6 +81,8 @@ int main(int ac, char *av[])
  */
 void sort_numbers(char *av[], int *m, int *n)
 {
+	int boolean = 0;
+
 	while (av[1][*m] || av[2][*n])
 	{
 		if (((av[1][*m] < 48 || av[1][*m] > 57) && av[1][*m]) ||
