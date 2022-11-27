@@ -76,7 +76,7 @@ void is_zero(char *av[])
 			break;
 		}
 	}
-	if (bn1 || bn2)
+	if (bn1 == 1 || bn2 == 1)
 	{
 		printf("0\n");
 		exit(15);
