@@ -55,7 +55,7 @@ int main(int ac, char *av[])
  *
  * @av: string of numbers
  */
-void is_zero(char *argv[])
+void is_zero(char *av[])
 {
 	int i, isn1 = 1, isn2 = 1;
 
