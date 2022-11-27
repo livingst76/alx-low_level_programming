@@ -61,7 +61,7 @@ void is_zero(char *av[])
 
 	for (i = 0; av[1][i]; i++)
 	{
-		if (av[1][i] != 48)
+		if (av[1][i] != '0')
 		{
 			bn1 = 0;
 			break;
@@ -70,7 +70,7 @@ void is_zero(char *av[])
 
 	for (i = 0; av[2][i]; i++)
 	{
-		if (av[2][i] != 48)
+		if (av[2][i] != '0')
 		{
 			bn2 = 0;
 			break;
