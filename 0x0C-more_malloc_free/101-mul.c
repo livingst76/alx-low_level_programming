@@ -3,7 +3,7 @@
 #include <stdlib.h>
 
 void get_result(char *av[], char *res, int i, int m, int d);
-void is_zero(char *av[]);
+void _is_zero(char *av[]);
 char *malloc_result(int max);
 void sort_numbers(char *av[], int *m, int *n);
 
@@ -27,7 +27,7 @@ int main(int ac, char *av[])
 		exit(98);
 	}
 
-	is_zero(av);
+	_is_zero(av);
 	sort_numbers(av, &m, &n);
 	result = malloc_result(m + n + 1);
 	get_result(av, result, n - 1, m, m + n - 1);
@@ -49,34 +49,31 @@ int main(int ac, char *av[])
  *
  * @av: string of numbers
  */
-void is_zero(char *av[])
+void _is_zero(char *av[])
 {
-	int i, bn1 = 1, bn2 = 1;
+	int i, isn1 = 1, isn2 = 1;
 
 	for (i = 0; av[1][i]; i++)
-	{
-		if (av[1][i] != 48)
+		if (av[1][i] != '0')
 		{
-			bn1 = 0;
+			isn1 = 0;
 			break;
 		}
-	}
 
 	for (i = 0; av[2][i]; i++)
-	{
-		if (av[2][i] != 48)
+		if (av[2][i] != '0')
 		{
-			bn2 = 0;
+			isn2 = 0;
 			break;
 		}
-	}
 
-	if (bn1 || bn2)
+	if (isn1 == 1 || isn2 == 1)
 	{
 		printf("0\n");
-		exit(15);
+		exit(0);
 	}
 }
+
 /**
  * sort_numbers - check the length of the numbers and their validity
  *
