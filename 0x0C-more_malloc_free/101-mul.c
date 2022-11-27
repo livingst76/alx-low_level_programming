@@ -51,13 +51,13 @@ int main(int ac, char *av[])
  */
 void is_zero(char *av[])
 {
-	int i, bn1 = 1, bn2 = 1;
+	int i, isn1 = 1, isn2 = 1;
 
 	for (i = 0; av[1][i]; i++)
 	{
 		if (av[1][i] != 48)
 		{
-			bn1 = 0;
+			isn1 = 0;
 			break;
 		}
 	}
@@ -66,16 +66,18 @@ void is_zero(char *av[])
 	{
 		if (av[2][i] != 48)
 		{
-			bn2 = 0;
+			isn2 = 0;
 			break;
 		}
 	}
-	if (bn1 || bn2)
+
+	if (isn1 == 1 || isn2 == 1)
 	{
 		printf("0\n");
 		exit(15);
 	}
 }
+
 /**
  * sort_numbers - check the length of the numbers and their validity
  *
