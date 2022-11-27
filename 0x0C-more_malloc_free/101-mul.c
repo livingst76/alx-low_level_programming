@@ -26,11 +26,11 @@ int main(int ac, char *av[])
 		exit(98);
 	}
 
-	if (av[1][0] == 48 || av[2][0] == 48)
+	/*if (av[1][0] == 48 || av[2][0] == 48)
 	{
 		printf("0\n");
 		exit(96);
-	}
+		}*/
 
 	sort_numbers(av, &m, &n);
 	result = malloc_result(m + n + 1);
