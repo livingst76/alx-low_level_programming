@@ -15,7 +15,7 @@ void sort_numbers(char *av[], int *m, int *n);
  * Return: 0 on sucesss, exit status 98 on failure
  * Note: works only for positive numbers in base 10.
  */
-void _is_zero(char *argv[])
+void _is_zero(char *av[])
 {
 	int i, isn1 = 1, isn2 = 1;
 
@@ -56,6 +56,7 @@ int main(int ac, char *av[])
 		exit(96);
 		}*/
 
+	_is_zero(av);
 	sort_numbers(av, &m, &n);
 	result = malloc_result(m + n + 1);
 	get_result(av, result, n - 1, m, m + n - 1);
