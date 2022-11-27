@@ -2,8 +2,9 @@
 #include <stdio.h>
 #include <stdlib.h>
 
-char *malloc_result(int max);
 void get_result(char *av[], char *res, int i, int m, int d);
+void is_zero(char *av[]);
+char *malloc_result(int max);
 void sort_numbers(char *av[], int *m, int *n);
 
 /**
@@ -15,30 +16,6 @@ void sort_numbers(char *av[], int *m, int *n);
  * Return: 0 on sucesss, exit status 98 on failure
  * Note: works only for positive numbers in base 10.
  */
-void _is_zero(char *av[])
-{
-	int i, isn1 = 1, isn2 = 1;
-
-	for (i = 0; av[1][i]; i++)
-		if (av[1][i] != '0')
-		{
-			isn1 = 0;
-			break;
-		}
-
-	for (i = 0; av[2][i]; i++)
-		if (av[2][i] != '0')
-		{
-			isn2 = 0;
-			break;
-		}
-
-	if (isn1 == 1 || isn2 == 1)
-	{
-		printf("0\n");
-		exit(0);
-	}
-}
 int main(int ac, char *av[])
 {
 	int m = 0, n = 0;
@@ -50,13 +27,13 @@ int main(int ac, char *av[])
 		exit(98);
 	}
 
-	/*if (av[1][0] == 48 || av[2][0] == 48)
+	if (av[1][0] == 48 || av[2][0] == 48)
 	{
 		printf("0\n");
 		exit(96);
-		}*/
+	}
 
-	_is_zero(av);
+	is_zero(av);
 	sort_numbers(av, &m, &n);
 	result = malloc_result(m + n + 1);
 	get_result(av, result, n - 1, m, m + n - 1);
@@ -73,6 +50,38 @@ int main(int ac, char *av[])
 	return (0);
 }
 
+/**
+ * is_zero - check if any of the numbers is 0
+ *
+ * @av: string of numbers
+ */
+void is_zero(char *av[])
+{
+	int i, bn1 = 1, bn2 = 1;
+
+	for (i = 0; av[1][i]; i++)
+	{
+		if (av[1][i] != 48)
+		{
+			bn1 = 0;
+			break;
+		}
+	}
+
+	for (i = 0; av[2][i]; i++)
+	{
+		if (av[2][i] != 48)
+		{
+			bn2 = 0;
+			break;
+		}
+	}
+	if (bn1 || bn2)
+	{
+		printf("0\n");
+		exit(15);
+	}
+}
 /**
  * sort_numbers - check the length of the numbers and their validity
  *
