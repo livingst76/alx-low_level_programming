@@ -12,7 +12,7 @@
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *new_dog, *p = new_dog;
+	dog_t *new_dog, *p;
 	char *nm, *ow;
 	int len = 0, i;
 
@@ -49,5 +49,5 @@ dog_t *new_dog(char *name, float age, char *owner)
 	new_dog->name = nm;
 	new_dog->age = age;
 	new_dog->owner = ow;
-	return (p);
+	return (p = new_dog);
 }
