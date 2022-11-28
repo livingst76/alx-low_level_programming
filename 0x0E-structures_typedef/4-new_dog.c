@@ -12,18 +12,18 @@
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *new_dog, *p;
+	dog_t *new_dog;
 	char *nm, *ow;
 	int len = 0, i;
 
     while (name[len])
 		len++;
 	nm = malloc(len + 1);
-	if (!nm)
+	/*if (!nm)
 	{
 		free(nm);
 		return (NULL);
-	}
+	}*/
 	for (i = 0; i < len; i++)
 		nm[i] = name[i];
 	nm[i] = '\0';
