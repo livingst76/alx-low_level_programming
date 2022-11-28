@@ -1,5 +1,5 @@
 #include "dog.h"
-#include <stddef.h>
+#include <stdlib.h>
 
 /**
  * new_dog - create profile details for a new dog
@@ -13,13 +13,36 @@
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t new_dog, *p = &new_dog;
-	char *nm = name, *ow = owner;
+	char *nm, *ow;
+	int len = 0, i;
 
-	/*if (!name)
+	if (!name || !owner)
 		return (NULL);
 
-	if (!owner)
-	return (NULL);*/
+	while (name[len])
+		len++;
+	nm = malloc(len + 1);
+	if (!nm)
+	{
+		free(nm);
+		return (NULL);
+	}
+	for (i = 0; i < len; i++)
+		nm[i] = name[i];
+	nm[i] = '\0';
+
+	len = 0;
+	while (owner[len])
+		len++;
+	ow = malloc(len + 1);
+	if (!ow)
+	{
+		free(nm);
+		return (NULL);
+	}
+	for (i = 0; i < len; i++)
+		ow[i] = owner[i];
+	ow[i] = '\0';
 
 	new_dog.name = nm;
 	new_dog.age = age;
