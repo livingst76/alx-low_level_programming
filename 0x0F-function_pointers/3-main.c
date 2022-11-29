@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 {
 	char s;
 
-	int result = 0, a = 0, b = 0;
+	int result, a, b;
 
 	if (argc != 4)
 	{
@@ -23,7 +23,7 @@ int main(int argc, char *argv[])
 	if (argv[2][1])
 	{
 		printf("Error\n");
-		exit(97);
+		exit(99);
 	}
 
 	s = argv[2][0];
