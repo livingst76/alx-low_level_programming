@@ -20,7 +20,7 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
-	if (argv[2][1] != '\0')
+	if (argv[2][1])
 	{
 		printf("Error\n");
 		exit(97);
@@ -36,6 +36,6 @@ int main(int argc, char *argv[])
 	a = atoi(argv[1]);
 	b = atoi(argv[3]);
 	result = (get_op_func(argv[2]))(a, b);
-	printf("%i\n", result);
+	printf("%d\n", result);
 	return (0);
 }
