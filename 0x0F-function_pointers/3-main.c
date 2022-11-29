@@ -19,11 +19,11 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
-	if (argv[2][1])
+	/*if (argv[2][1])
 	{
 		printf("Error\n");
 		exit(97);
-	}
+		}*/
 
 	if (s != '+' && s != '-' && s != '*' && s != '/' && s != '%')
 	{
