@@ -1,0 +1,9 @@
+#ifndef VARIADIC_FUNCTIONS_H
+#define VARIADIC_FUNCTIONS_H
+
+int _putchar(char c);
+int sum_them_all(const unsigned int n, ...);
+void print_number(const char *separator, const unsigned int n, ...);
+void print_strings(const char * const format, ...);
+
+#endif /*VARIADIC_FUNCTIONS_H*/
