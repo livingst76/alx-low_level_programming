@@ -12,7 +12,7 @@ int main(int argc, char *argv[])
 {
 	char s;
 
-	int result, a, b;
+	int result = 0, a = 0, b = 0;
 
 	if (argc != 4)
 	{
@@ -36,6 +36,6 @@ int main(int argc, char *argv[])
 	a = atoi(argv[1]);
 	b = atoi(argv[3]);
 	result = (get_op_func(argv[2]))(a, b);
-	printf("%d\n", result);
+	printf("%i\n", result);
 	return (0);
 }
