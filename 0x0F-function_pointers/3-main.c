@@ -10,7 +10,7 @@
  */
 int main(int argc, char *argv[])
 {
-	/*char s = argv[2][0];*/
+	char s = argv[2][0];
 	int result, a, b;
 
 	if (argc != 4)
@@ -25,11 +25,11 @@ int main(int argc, char *argv[])
 		exit(97);
 	}
 
-	/*if (s != '+' && s != '-' && s != '*' && s != '/' && s != '%')
+	if (s != '+' && s != '-' && s != '*' && s != '/' && s != '%')
 	{
 		printf("Error\n");
 		exit(99);
-		}*/
+	}
 
 	a = atoi(argv[1]);
 	b = atoi(argv[3]);
