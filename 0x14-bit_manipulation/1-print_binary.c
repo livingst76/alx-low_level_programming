@@ -7,7 +7,7 @@
  */
 void print_binary(unsigned long int n)
 {
-	unsigned int tmp = n;
+	unsigned int tmp = n, tmf = n;
 	int i, j, k;
 
 	if (!n)
@@ -17,11 +17,8 @@ void print_binary(unsigned long int n)
 	}
 
 	i = 0;
-	while (tmp > 0)
-	{
-		tmp >>= 1;
-		i++;
-	}
+	for (i = 0; tmp > 0; tmp >>= 1, i++)
+		;
 
 	k = j = i;
 
@@ -39,4 +36,5 @@ void print_binary(unsigned long int n)
 		n <<= 1;
 		i--;
 	}
+	n = tmf;
 }
