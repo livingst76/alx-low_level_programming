@@ -16,8 +16,12 @@ void print_binary(unsigned long int n)
 		return;
 	}
 
-	for (i = 0; tmp > 0; i++, tmp >>= 1)
-		;
+	i = 0;
+	while (tmp > 0)
+	{
+		tmp >>= 1;
+		i++;
+	}
 
 	k = j = i;
 
