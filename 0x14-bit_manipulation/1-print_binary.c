@@ -10,6 +10,9 @@ void print_binary(unsigned long int n)
 	unsigned int tmp = n;
 	int i, j, k;
 
+	if (n < 0)
+		return;
+
 	for (i = 0; tmp > 0; i++, tmp >>= 1)
 		;
 
