@@ -7,14 +7,11 @@
  */
 void print_binary(unsigned long int n)
 {
-	unsigned int tmp = n, tmf = n;
+	unsigned int tmp = n;
 	int i, j, k;
 
-	if (!n)
-	{
-		_putchar('0');
+	if (n > 4294967294)
 		return;
-	}
 
 	i = 0;
 	for (i = 0; tmp > 0; tmp >>= 1, i++)
@@ -22,19 +19,14 @@ void print_binary(unsigned long int n)
 
 	k = j = i;
 
-	while (i > 0)
-	{
+	do {
 		tmp = n;
 		j = k;
-		while (j > 1)
-		{
+		for (j = k; j > 1; j--)
 			n >>= 1;
-			j--;
-		}
 		_putchar((n & 1) + '0');
 		n = tmp;
 		n <<= 1;
 		i--;
-	}
-	n = tmf;
+	} while (i > 0);
 }
