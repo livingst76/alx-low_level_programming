@@ -11,7 +11,10 @@ void print_binary(unsigned long int n)
 	int i, j, k;
 
 	if (n > 4294967294)
+	{
+		_putchar('0');
 		return;
+	}
 
 	i = 0;
 	for (i = 0; tmp > 0; tmp >>= 1, i++)
