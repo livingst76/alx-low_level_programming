@@ -27,7 +27,6 @@ void print_binary(unsigned long int n)
 		for (j = k; j > 1; j--)
 			n >>= 1;
 		_putchar((n & 1) + '0');
-		j = k;
 		n = tmp;
 		n <<= 1;
 		i--;
