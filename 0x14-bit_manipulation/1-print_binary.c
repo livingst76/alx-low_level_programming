@@ -24,8 +24,12 @@ void print_binary(unsigned long int n)
 	while (i > 0)
 	{
 		tmp = n;
-		for (j = k; j > 1; j--)
+		j = k;
+		while (j > 1)
+		{
 			n >>= 1;
+			j--;
+		}
 		_putchar((n & 1) + '0');
 		n = tmp;
 		n <<= 1;
