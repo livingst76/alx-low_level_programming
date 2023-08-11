@@ -1,4 +1,4 @@
-#Conditional statements in C
+# Conditional statements in C
 0-positive_or_negative.c: checks positivity or negativity of a number
 1-last_digit.c: prints the last digit of a number.
 2-print_alphabet.c: prints alphabets in lower case, followed by a new line.
