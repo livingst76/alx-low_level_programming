@@ -1,7 +1,7 @@
 # Conditional statements in C
-0-positive_or_negative.c: checks positivity or negativity of a number
-1-last_digit.c: prints the last digit of a number.
-2-print_alphabet.c: prints alphabets in lower case, followed by a new line.
+## 0-positive_or_negative.c: checks positivity or negativity of a number
+## 1-last_digit.c: prints the last digit of a number.
+## 2-print_alphabet.c: prints alphabets in lower case, followed by a new line.
 3-print_alphabets: prints alphabets in lowercase, then in upper case followed by a new line
 4-print_alphabt: prints all alphabets except "q" and "e", followed by a new line.
 5-print_numbers.c: prints all the single digit numbers of base 10 starting from 0.
