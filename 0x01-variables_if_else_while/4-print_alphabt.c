@@ -8,20 +8,12 @@
 int main(void)
 {
 	int i;
-	char c, v;
 
 	for (i = 97; i < 123; i++)
-	{
-		c = i;
-
 		if (i != 101 && i != 113)
-		{
-			putchar(c);
-		}
-	}
+			putchar(i);
 
-	v = '\n';
-	putchar(v);
+	putchar('\n');
 
 	return (0);
 }
