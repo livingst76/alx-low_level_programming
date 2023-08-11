@@ -7,7 +7,7 @@
  */
 int main(void)
 {
-	int c, i, n, s;
+	int comma, i, n, space;
 
 	for (i = 48; i < 58; i++)
 	{
@@ -15,11 +15,11 @@ int main(void)
 
 		if (i < 57)
 		{
-			c = 44;
-			putchar((char) c);
+			comma = 44;
+			putchar((char) comma);
 
-			s = 32;
-			putchar((char) s);
+			space = 32;
+			putchar((char) space);
 		}
 	}
 
