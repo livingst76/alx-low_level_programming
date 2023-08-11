@@ -22,10 +22,12 @@ int main(void)
 	{
 		printf("is %i and is greater than 5\n", last);
 	}
+
 	if (last == 0)
 	{
 		printf("is %i and is 0\n", last);
 	}
+
 	if (last < 6 && last != 0)
 	{
 		printf("is %i and is less than 6 and not 0\n", last);
