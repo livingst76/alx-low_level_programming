@@ -1,18 +1,20 @@
-#include <stdio.h>
 #include "main.h"
 
 /**
- * main - prints "_putchar"
+ * main - prints alphabets
  *
- * Return: Always 0 (success)
+ * Return: Always 0 (sucess)
  */
 int main(void)
 {
-	char buffer[9] = "_putchar";
 	int i;
 
+	char c[9] = "_putchar";
+
 	for (i = 0; i < 8; i++)
-		_putchar(buffer[i]);
+	{
+		_putchar(c[i]);
+	}
 	_putchar('\n');
 
 	return (0);
