@@ -35,7 +35,7 @@ void print_number(int n)
 
 	for (i = 0; i <= y; i++)
 	{
-		_putchar(((k / p) % 10) + '0');
+		_putchar((k / p) + '0');
 		p /= 10;
 	}
 }
