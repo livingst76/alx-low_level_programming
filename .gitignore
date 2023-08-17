@@ -1,2 +1,3 @@
-*~ *main* #*#
-
+# Ignore Emacs backup files
+*~
+*#
