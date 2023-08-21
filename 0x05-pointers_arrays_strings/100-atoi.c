@@ -20,8 +20,7 @@ int _atoi(char *s)
 			n = (n * 10) +  (*s - 48);
 			if (*(s + 1) < '0' || *(s + 1) > '9')
 			{
-				alnum = 1;
-				/*while (*s != '\0')
+			    while (*s != '\0')
 				{
 					if ((*s >= 'A' && *s <= 'z') || (*s >= 'a' && *s <= 'z'))
 					{
@@ -29,7 +28,7 @@ int _atoi(char *s)
 						break;
 					}
 					s++;
-					}*/
+				}
 				break;
 			}
 		}
@@ -45,11 +44,7 @@ int _atoi(char *s)
 	}
 
 	if (boolean && !alnum)
-	{
 		return (n * -1);
-	}
 	else
-	{
 		return (n);
-	}
 }
