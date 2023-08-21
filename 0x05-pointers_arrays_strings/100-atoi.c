@@ -25,6 +25,7 @@ int _atoi(char *s)
 					if ((*s >= 'A' && *s <= 'z') || (*s >= 'a' && *s <= 'z'))
 					{
 						alnum = 1;
+						break;
 					}
 					s++;
 				}
