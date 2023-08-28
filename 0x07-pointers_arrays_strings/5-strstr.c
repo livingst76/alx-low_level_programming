@@ -1,40 +1,31 @@
+#include "main.h"
 #include <stddef.h>
-#include <string.h>
+#include <stdio.h>
 
 /**
- * _strstr - get the length of a prefix substring.
+ * _strstr - find the first occurence of a substring in a string
  *
- * @s: string.
- * @accept: substring.
+ * @haystack: string
+ * @needle: substring
  *
- * Return: number of bytes in the initial segment of s which consists
- *         only of bytes from accept.
+ * Return: &s[i], address of first occurence
  */
-char *_strstr(char *s, char *accept)
+char *_strstr(char *haystack, char *needle)
 {
-	unsigned int i, j, len, n;
+	unsigned int i, j, n;
 
-	len = strlen(accept);
-
-	for (i = 0; s[i]; i++)
+	for (i = 0; haystack[i] != '\0'; i++)
 	{
-		if (s[i] == accept[0])
+		for (j = 0, n = i; haystack[n] == needle[j] &&
+				 needle[j] != '\0' && haystack[n] != '\0'; j++)
+			n++;
+
+		if (needle[j] == '\0')
 		{
-			for (j = 1, n = i + 1; accept[j]; j++, n++)
-			{
-				if (s[n] != accept[j])
-				{
-					break;
-				}
-
-				if (j == len - 1)
-				{
-					return (&s[i]);
-				}
-
-			}
+			return (&haystack[i]);
 		}
-	}
+		i = n;
 
+	}
 	return (NULL);
 }
