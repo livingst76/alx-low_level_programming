@@ -14,12 +14,6 @@ int main(int argc, char *argv[])
 {
 	int i = 0, j = 0, result = 0;
 
-	if (argc < 2)
-	{
-		printf("0\n");
-		return (1);
-	}
-
 	while (++i < argc)
 	{
 		j = 0;
