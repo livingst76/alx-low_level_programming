@@ -50,4 +50,6 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 		ptr = strncpy(ptr, tmp, new_size);
 		return (ptr);
 	}
+
+	return (NULL);
 }
