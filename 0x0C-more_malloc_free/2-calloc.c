@@ -1,4 +1,5 @@
 #include <stdlib.h>
+#include <string.h>
 
 /**
  * _calloc - allocate memory using malloc.
@@ -10,7 +11,6 @@
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	unsigned int i;
 	char *ptr;
 
 	if (!nmemb || !size)
@@ -24,10 +24,7 @@ void *_calloc(unsigned int nmemb, unsigned int size)
 		return (NULL);
 	}
 
-	for (i = 0; i < nmemb * size; i++)
-	{
-		ptr[i] = 0;
-	}
+	ptr = memset(ptr, 0, nmemb * size);
 
 	return ((void *) ptr);
 }
