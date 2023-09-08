@@ -14,7 +14,7 @@
  */
 void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 {
-	char *new;
+	void *new;
 
 	if (new_size == old_size)
 	{
@@ -46,7 +46,7 @@ void *_realloc(void *ptr, unsigned int old_size, unsigned int new_size)
 		{
 			new_size = old_size;
 		}
-		new = strncpy(new, ptr, new_size);
+		new = memcpy(new, ptr, new_size);
 		free(ptr);
 		return (ptr);
 	}
