@@ -7,12 +7,11 @@
  * @size: size of elements.
  *
  * Return: pointer to allocated memory, NULL if malloc fails,
- *         nmemb or size equals 0.
  */
 void *_calloc(unsigned int nmemb, unsigned int size)
 {
-	char *ptr;
 	unsigned int i;
+	char *ptr;
 
 	if (!nmemb || !size)
 	{
