@@ -12,7 +12,7 @@
  */
 void print_all(const char * const format, ...)
 {
-	unsigned int i = 0, valid = 0;
+	int i = 0, valid = 0;
 	va_list ap;
 
 	va_start(ap, format);
