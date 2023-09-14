@@ -43,6 +43,7 @@ void print_all(const char * const format, ...)
 		}
 		i++;
 
+		/* Does not work as intended if last format is invalid */
 		if (format[i] && valid)
 		{
 			printf(", ");
