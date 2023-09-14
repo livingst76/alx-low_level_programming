@@ -8,6 +8,8 @@
  */
 int main(void)
 {
-    print_all("ceihghhhnbvnjsdss", 'B', 3, NULL, "stSchool", NULL);
+    print_all("ceifdddddggtgtrtryrss", 'B', 3, NULL, "stSchool", NULL);
+	print_all("ceifsfgqwigh", 'B', 3, 3.0, "stSchool", 5.0, 10);
+	print_all("ceifsfeigh", 'B', 3, 3.0, "stSchool", 5.0, 10);
     return (0);
 }
