@@ -12,22 +12,16 @@
 void print_numbers(const char *separator, const unsigned int n, ...)
 {
 	unsigned int i;
-	long number;
 	va_list ap;
-
-	if (!separator)
-	{
-		return;
-	}
 
 	va_start(ap, n);
 
 	for (i = 0; i < n; i++)
 	{
-		number = va_arg(ap, int);
-		printf("%li", number);
+		printf("%i", va_arg(ap, int));
 
-		if (i < n - 1)
+		/* Check if seaparator is valid; output no separator for the last num*/
+		if (i < n - 1 && separator)
 		{
 			printf("%s", separator);
 		}
