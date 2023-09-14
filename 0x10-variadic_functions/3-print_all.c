@@ -50,7 +50,7 @@ void print_all(const char * const format, ...)
 		}
 	}
 	putchar('\n');
-	va_end(ap);
+	/*va_end(ap);*/
 }
 
 /**
