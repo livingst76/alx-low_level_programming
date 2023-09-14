@@ -1,5 +1,4 @@
 #include <stdarg.h>
-#include <stdio.h>
 
 /**
  * print_numbers - print numbers; terminate with a new line.
