@@ -7,13 +7,26 @@
  * @next: points to the next node
  *
  * Description: singly linked list node structure
- *
  */
 typedef struct listint_s
 {
 	int n;
 	struct listint_s *next;
 } listint_t;
+
+/**
+ * struct is_loop_t - loop checker.
+ *
+ * @_bool: the loop status of a linked list.
+ * @index: index of the occurence of the loop.
+ *
+ * Description: check if there's a loop in a linked list and get its index.
+ */
+typedef struct is_loop_t
+{
+	int _bool;
+	int index;
+} is_loop_t;
 
 size_t print_listint(const listint_t *h);
 size_t listint_len(const listint_t *h);
@@ -28,6 +41,7 @@ listint_t *insert_nodeint_at_index(listint_t **head, unsigned int idx, int n);
 int delete_nodeint_at_index(listint_t **head, unsigned int index);
 listint_t *reverse_listint(listint_t **head);
 size_t print_listint_safe(const listint_t *head);
+is_loop_t is_loop(const listint_t *tmp, const listint_t **array);
 size_t free_listint_safe(listint_t **h);
 listint_t *find_listint_loop(listint_t *head);
 
