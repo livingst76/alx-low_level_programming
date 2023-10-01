@@ -31,10 +31,15 @@ size_t print_listint_safe(const listint_t *h)
 			break;
 		}
 
-		printf("[%p] ", (void *) h);
-		printf("%i\n", h->n);
+		printf("[%p] %i\n", (void *) h, h->n);
 		h = h->next;
 		count++;
+	}
+
+	if (is_loop_n._bool)
+	{
+		printf("-> [%p] %i\n", (void *) array[is_loop_n.index],
+		   array[is_loop_n.index]->n);
 	}
 
 	h = head;
