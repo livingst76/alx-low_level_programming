@@ -42,11 +42,13 @@ int create_file(const char *filename, char *text_content)
 		}
 	}
 
-	bytes_close = close(fd);
-	if (bytes_close == -1)
+	if (fd)
 	{
-		return (-1);
+		bytes_close = close(fd);
+		if (bytes_close == -1)
+		{
+			return (-1);
+		}
 	}
-
 	return (1);
 }
