@@ -15,7 +15,7 @@ ssize_t read_textfile(const char *filename, size_t letters)
 	ssize_t bytes_read = 0, bytes_print = 0;
 	int fd = -1;
 
-	if (!filename)
+	if (!filename || !letters)
 	{
 		return (0);
 	}
@@ -38,12 +38,15 @@ ssize_t read_textfile(const char *filename, size_t letters)
 		return (0);
 	}
 
-	bytes_print = write(1, buffer, letters);
+	bytes_print = write(1, buffer, bytes_read);
 	if (bytes_print < 0)
 	{
 		return (0);
 	}
 
 	free(buffer);
+	close(fd);
+
+	/* This check is not necessary just trying to master the coding style */
 	return (bytes_print > bytes_read ? bytes_read : bytes_print);
 }
