@@ -29,7 +29,7 @@ int create_file(const char *filename, char *text_content)
 		}
 
 		bytes_write = write(fd, text_content ? text_content : "",
-							_strlen(text_content));
+							strlen(text_content));
 		if (bytes_write == -1)
 		{
 			return (-1);
@@ -43,23 +43,4 @@ int create_file(const char *filename, char *text_content)
 	}
 
 	return (1);
-}
-
-/**
- * _strlen - get the length of a string
- *
- * @s: string to be worked on
- *
- * Return: len, length of the string.
- */
-int _strlen(char *s)
-{
-	int len = 0;
-
-	while (*s++)
-	{
-		len++;
-	}
-
-	return (len);
 }
