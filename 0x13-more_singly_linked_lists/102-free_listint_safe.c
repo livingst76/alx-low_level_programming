@@ -26,13 +26,8 @@ size_t free_listint_safe(listint_t **h)
 				*h = NULL;
 				is_loop = 1;
 				size += sizeof(*h);
-				break;
+				return (size);
 			}
-		}
-
-		if (is_loop)
-		{
-			break;
 		}
 
 		size += sizeof(*h);
