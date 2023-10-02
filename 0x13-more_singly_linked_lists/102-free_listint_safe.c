@@ -13,7 +13,7 @@ size_t free_listint_safe(listint_t **h)
 {
 	size_t size = 0;
 	listint_t *current, *array[10000];
-	int is_loop = 0, i = 0, n = 0;
+	int i = 0, n = 0;
 
 	while (*h)
 	{
@@ -24,7 +24,6 @@ size_t free_listint_safe(listint_t **h)
 			{
 				free(*h);
 				*h = NULL;
-				is_loop = 1;
 				size += sizeof(*h);
 				return (size);
 			}
