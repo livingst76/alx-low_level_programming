@@ -12,7 +12,6 @@
 int create_file(const char *filename, char *text_content)
 {
 	ssize_t bytes_write, bytes_close;
-	unsigned int len = 0;
 	int fd = -1;
 
 	if (!filename)
@@ -31,9 +30,8 @@ int create_file(const char *filename, char *text_content)
 
 		if (text_content)
 		{
-			len = strlen(text_content);
-			bytes_write = write(fd, text_content, len);
-			if (bytes_write == -1)
+			bytes_write = write(fd, text_content, strlen(text_content));
+			if (bytes_write < 0)
 			{
 				return (-1);
 			}
@@ -41,7 +39,7 @@ int create_file(const char *filename, char *text_content)
 		}
 
 		bytes_close = close(fd);
-		if (bytes_close == -1)
+		if (bytes_close < 0)
 		{
 			return (-1);
 		}
