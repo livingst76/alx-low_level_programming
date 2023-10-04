@@ -19,7 +19,7 @@ int main(int argc, char **argv)
 	char *buffer;
 	int fd1 = -1, fd2 = -1;
 
-	if (argc != 3)
+	if (argc < 3)
 	{
 		dprintf(2, "Usage: cp file_from file_to\n");
 		exit(97);
