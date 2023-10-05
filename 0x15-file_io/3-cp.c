@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "main.h"
 
 /**
@@ -19,7 +20,7 @@ int main(int argc, char **argv)
 	char *buffer;
 	int fd1 = -1, fd2 = -1;
 
-	if (argc < 3)
+	if (argc != 3)
 	{
 		dprintf(2, "Usage: cp file_from file_to\n");
 		exit(97);
@@ -54,7 +55,7 @@ int validate(char *file_from)
 {
 	int fd = -1;
 
-	fd = open(file_from, O_RDONLY);
+	fd = open(file_from, O_RDWR);
 	if (fd == -1)
 	{
 		dprintf(2, "Error: Can't read from file %s\n", file_from);
@@ -109,7 +110,7 @@ void copy_file(char *buffer, char *file_from, char *file_to, int fd1, int fd2)
 
 	do {
 		bytes_read = read(fd1, buffer, 1024);
-		if (bytes_read == -1 && bytes_read != EOF)
+		if (bytes_read == -1)
 		{
 			close_file(buffer, fd1);
 			dprintf(2, "Error: Can't read from file %s\n", file_from);
@@ -117,7 +118,7 @@ void copy_file(char *buffer, char *file_from, char *file_to, int fd1, int fd2)
 			exit(98);
 		}
 
-		bytes_write = write(fd2, buffer, bytes_read);
+		bytes_write = write(fd2, buffer, 1024);
 		if (bytes_write == -1)
 		{
 			close_file(buffer, fd1);
@@ -126,6 +127,8 @@ void copy_file(char *buffer, char *file_from, char *file_to, int fd1, int fd2)
 			free(buffer);
 			exit(99);
 		}
+
+		buffer = memset(buffer, 0, 1024);
 
 	} while (bytes_read == 1024);
 
