@@ -128,7 +128,7 @@ void copy_file(char *buffer, char *file_from, char *file_to, int fd1, int fd2)
 			exit(99);
 		}
 
-		buffer = memset(buffer, 0, 1024);
+		/*buffer = memset(buffer, 0, 1024);*/
 
 	} while (bytes_read == 1024);
 
