@@ -118,7 +118,7 @@ void copy_file(char *buffer, char *file_from, char *file_to, int fd1, int fd2)
 			exit(98);
 		}
 
-		bytes_write = write(fd2, buffer, 1024);
+		bytes_write = write(fd2, buffer, bytes_read);
 		if (bytes_write == -1)
 		{
 			close_file(buffer, fd1);
