@@ -110,7 +110,7 @@ void copy_file(char *buffer, char *file_from, char *file_to, int fd1, int fd2)
 
 	do {
 		bytes_read = read(fd1, buffer, 1024);
-		if (bytes_read == -1 && bytes_read != EOF)
+		if (bytes_read == -1)
 		{
 			close_file(buffer, fd1);
 			dprintf(2, "Error: Can't read from file %s\n", file_from);
