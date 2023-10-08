@@ -27,6 +27,8 @@ int main(int argc, char **argv)
 		exit(98);
 	}
 
+	printf("ELF Header:\n");
+	print_mag_num(header);
 	return (0);
 }
 
@@ -65,4 +67,24 @@ int is_elf(int *fd, char *elf_file, Elfw(Ehdr) * header)
 	}
 
 	return (0);
+}
+
+/**
+ * print_mag_num - print magic number in header of ELF file
+ *
+ * @header: ELF file header.
+ *
+ * Return: nothing.
+ */
+void print_mag_num(Elfw(Ehdr) header)
+{
+	int i;
+	char space = ' ';
+
+	printf("%2cMagic:%2c", space, space);
+	for (i = 0; i < EI_NIDENT; i++) /* EI_NIDENT = 16 */
+	{
+		printf(" %02x", header.e_ident[i]);
+	}
+	putchar('\n');
 }
