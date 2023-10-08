@@ -22,7 +22,7 @@ int main(int argc, char **argv)
 
 	if (argc != 3)
 	{
-		dprintf(2, "Usage: cp file_from file_to\n");
+		dprintf(STDOUT_FILENO, "Usage: cp file_from file_to\n");
 		exit(97);
 	}
 
@@ -55,10 +55,10 @@ int validate(char *file_from)
 {
 	int fd = -1;
 
-	fd = open(file_from, O_RDWR);
+	fd = open(file_from, O_RDONLY);
 	if (fd == -1)
 	{
-		dprintf(2, "Error: Can't read from file %s\n", file_from);
+		dprintf(STDOUT_FILENO, "Error: Can't read from file %s\n", file_from);
 		exit(98);
 	}
 
@@ -86,7 +86,7 @@ int _create_file(char *file_to, int fd1)
 	if (fd2 == -1)
 	{
 		close_file(NULL, fd1);
-		dprintf(2, "Error: Can't write to %s\n", file_to);
+		dprintf(STDOUT_FILENO, "Error: Can't write to %s\n", file_to);
 		exit(99);
 	}
 
@@ -113,7 +113,8 @@ void copy_file(char *buffer, char *file_from, char *file_to, int fd1, int fd2)
 		if (bytes_read == -1)
 		{
 			close_file(buffer, fd1);
-			dprintf(2, "Error: Can't read from file %s\n", file_from);
+			dprintf(STDOUT_FILENO, "Error: Can't read from file %s\n",
+					file_from);
 			free(buffer);
 			exit(98);
 		}
@@ -123,12 +124,12 @@ void copy_file(char *buffer, char *file_from, char *file_to, int fd1, int fd2)
 		{
 			close_file(buffer, fd1);
 			close_file(buffer, fd2);
-			dprintf(2, "Error: Can't write to %s\n", file_to);
+			dprintf(STDOUT_FILENO, "Error: Can't write to %s\n", file_to);
 			free(buffer);
 			exit(99);
 		}
 
-		/*buffer = memset(buffer, 0, 1024);*/
+		buffer = memset(buffer, 0, 1024);
 
 	} while (bytes_read == 1024);
 
