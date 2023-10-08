@@ -153,7 +153,7 @@ void close_file(char *buffer, int fd)
 	bytes_close = close(fd);
 	if (bytes_close == -1)
 	{
-		dprintf(2, "Error: Can't close fd %i\n", fd);
+		dprintf(STDOUT_FILENO, "Error: Can't close fd %i\n", fd);
 		if (buffer)
 		{
 			free(buffer);
