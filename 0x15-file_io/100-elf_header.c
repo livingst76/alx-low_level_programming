@@ -171,6 +171,10 @@ void print_version(Elfw(Ehdr) header)
 	{
 		printf("%i (current)\n", EV_CURRENT);
 	}
+	else
+	{
+		printf("%i\n", EV_CURRENT);
+	}
 }
 
 /**
