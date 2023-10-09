@@ -24,5 +24,12 @@ void copy_file(char *buffer, char *file_from, char *file_to, int fd1, int fd2);
 void close_file(char *buffer, int fd);
 int is_elf(int *fd, char *elf_file, Elfw(Ehdr) * header);
 void print_mag_num(Elfw(Ehdr) header);
+void print_class(Elfw(Ehdr) header);
+void print_data(Elfw(Ehdr) header);
+void print_version(Elfw(Ehdr) header);
+void print_OS_ABI(Elfw(Ehdr) header);
+void print_ABI_version(Elfw(Ehdr) header);
+void print_type(Elfw(Ehdr) header);
+void print_EPA(Elfw(Ehdr) header);
 
 #endif /*MAIN_H*/
