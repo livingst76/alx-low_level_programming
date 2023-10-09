@@ -30,6 +30,7 @@ void print_version(Elfw(Ehdr) header);
 void print_OS_ABI(Elfw(Ehdr) header);
 void print_ABI_version(Elfw(Ehdr) header);
 void print_type(Elfw(Ehdr) header);
-void print_EPA(Elfw(Ehdr) header);
+void print_EPA_64(Elfw(Ehdr) header);
+void print_EPA_32(Elfw(Ehdr) header);
 
 #endif /*MAIN_H*/
