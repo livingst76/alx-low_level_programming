@@ -12,7 +12,7 @@ int main(int argc, char **argv)
 {
 	Elfw(Ehdr) header;
 	char *elf_file;
-	int fd;
+	int fd, file_close;
 
 	if (argc != 2)
 	{
@@ -36,6 +36,12 @@ int main(int argc, char **argv)
 	print_ABI_version(header);
 	print_type(header);
 	print_EPA(header);
+	file_close = close(fd);
+	if (file_close == -1)
+	{
+		dprintf(2, "Error: %s could not be closed\n", elf_file);
+		exit(98);
+	}
 	return (0);
 }
 
