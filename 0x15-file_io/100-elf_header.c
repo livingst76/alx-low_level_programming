@@ -99,7 +99,7 @@ void print_mag_num(Elfw(Ehdr) header)
 	{
 		printf(" %02x", header.e_ident[i]);
 	}
-	putchar('\n');
+	printf("\n");
 }
 
 /**
