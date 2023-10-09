@@ -173,7 +173,7 @@ void print_version(Elfw(Ehdr) header)
 	}
 	else
 	{
-		printf("%i\n", EV_CURRENT);
+		printf("1\n");
 	}
 }
 
