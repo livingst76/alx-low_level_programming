@@ -29,6 +29,13 @@ int main(int argc, char **argv)
 
 	printf("ELF Header:\n");
 	print_mag_num(header);
+	print_class(header);
+	print_data(header);
+	print_version(header);
+	print_OS_ABI(header);
+	print_ABI_version(header);
+	print_type(header);
+	print_EPA(header);
 	return (0);
 }
 
@@ -87,4 +94,171 @@ void print_mag_num(Elfw(Ehdr) header)
 		printf(" %02x", header.e_ident[i]);
 	}
 	putchar('\n');
+}
+
+/**
+ * print_class - print file bit format.
+ *
+ * @header: ELF file header.
+ *
+ * Return: Nothing.
+ */
+void print_class(Elfw(Ehdr) header)
+{
+	char space = ' ';
+
+	printf("%2cClass:%29c", space, space);
+	if (header.e_ident[EI_CLASS] == 0x01)
+	{
+		printf("ELF32\n");
+	}
+	else if (header.e_ident[EI_CLASS] == 0x02)
+	{
+		printf("ELF64\n");
+	}
+}
+/**
+ * print_data - print endianness of file.
+ *
+ * @header: ELF file header.
+ *
+ * Return: Nothing.
+ */
+void print_data(Elfw(Ehdr) header)
+{
+	char space = ' ';
+
+	printf("%2cData:%30c", space, space);
+	if (header.e_ident[EI_DATA] == 1)
+	{
+		printf("2's complement, little endian\n");
+	}
+	else if (header.e_ident[EI_DATA] == 2)
+	{
+		printf("2's complement, big endian\n");
+	}
+}
+/**
+ * print_version - print the ELF header version number.
+ *
+ * @header: ELF file header.
+ *
+ * Return: Nothing.
+ */
+void print_version(Elfw(Ehdr) header)
+{
+	char space = ' ';
+
+	printf("%2cVersion:%27c", space, space);
+	if (header.e_ident[EI_VERSION] == EV_CURRENT)
+	{
+		printf("%i (current)\n", EV_CURRENT);
+	}
+	else
+	{
+		exit(98);
+	}
+}
+/**
+ * print_OS_ABI - print the operating system and
+ *                ABI to which object is targeted.
+ *
+ * @header: ELF file header.
+ *
+ * Return: Nothing.
+ */
+void print_OS_ABI(Elfw(Ehdr) header)
+{
+	char space = ' ';
+
+	printf("%2cOS/ABI:%28c", space, space);
+	if (header.e_ident[EI_OSABI] == ELFOSABI_NONE ||
+		header.e_ident[EI_OSABI] == ELFOSABI_SYSV)
+		printf("UNIX - System V\n");
+	else if (header.e_ident[EI_OSABI] == ELFOSABI_HPUX)
+		printf("UNIX - HP-UX\n");
+	else if (header.e_ident[EI_OSABI] == ELFOSABI_NETBSD)
+		printf("UNIX - NetBSD\n");
+	else if (header.e_ident[EI_OSABI] == ELFOSABI_LINUX)
+		printf("UNIX - Linux\n");
+	else if (header.e_ident[EI_OSABI] == ELFOSABI_SOLARIS)
+		printf("UNIX - Solaris\n");
+	else if (header.e_ident[EI_OSABI] == ELFOSABI_IRIX)
+		printf("UNIX - IRIX\n");
+	else if	(header.e_ident[EI_OSABI] == ELFOSABI_FREEBSD)
+		printf("UNIX - FreeBSD\n");
+	else if	(header.e_ident[EI_OSABI] == ELFOSABI_TRU64)
+		printf("UNIX - TRU64\n");
+	else if	(header.e_ident[EI_OSABI] == ELFOSABI_ARM)
+		printf("ARM\n");
+	else if	(header.e_ident[EI_OSABI] == ELFOSABI_STANDALONE)
+		printf("Standalone App\n");
+	else
+		printf("<unknown: 53>\n");
+}
+
+/**
+ * print_ABI_version - print the version of the ABI to
+ *                     which the object is targeted.
+ *
+ * @header: ELF file header.
+ *
+ * Return: Nothing.
+ */
+void print_ABI_version(Elfw(Ehdr) header)
+{
+	char space = ' ';
+
+	printf("%2cABI Version:%23c", space, space);
+	printf("%i\n", header.e_ident[EI_ABIVERSION]);
+}
+
+/**
+ * print_type - print object file type
+ *
+ * @header: ELF file header.
+ *
+ * Return: Nothing.
+ */
+void print_type(Elfw(Ehdr) header)
+{
+	char space = ' ';
+
+	printf("%2cType:%30c", space, space);
+	if (header.e_type == ET_DYN)
+	{
+		printf("DYN (Shared object file)\n");
+	}
+	else if (header.e_type == ET_REL)
+	{
+		printf("REL (Relocatable file)\n");
+	}
+	else if (header.e_type == ET_EXEC)
+	{
+		printf("EXEC (Executable file)\n");
+	}
+	else if (header.e_type == ET_NONE)
+	{
+		printf("NONE\n");
+	}
+	else if (header.e_type == ET_CORE)
+	{
+		printf("CORE (Core file)\n");
+	}
+}
+
+/**
+ * print_EPA - print the entry point address, the memory address where
+ *             the program begins execution after being loaded into memory.
+ *
+ * @header: ELF file header.
+ *
+ * Return: Nothing.
+ */
+void print_EPA(Elfw(Ehdr) header)
+{
+	char space = ' ';
+
+	printf("%2cEntry point address:%15c", space, space);
+	printf("0x%lx\n", header.e_entry);
 }
