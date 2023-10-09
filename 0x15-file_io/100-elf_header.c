@@ -1,3 +1,5 @@
+/* readelf miniature programme */
+/* Values of each macro defined in elf.h can be found in /usr/include/elf.h */
 #include "main.h"
 
 /**
@@ -35,7 +37,14 @@ int main(int argc, char **argv)
 	print_OS_ABI(header);
 	print_ABI_version(header);
 	print_type(header);
-	print_EPA(header);
+	if (header.e_ident[EI_CLASS] == 0x01)
+	{
+		print_EPA_32(header);
+	}
+	else if (header.e_ident[EI_CLASS] == 0x02)
+	{
+		print_EPA_64(header);
+	}
 	file_close = close(fd);
 	if (file_close == -1)
 	{
@@ -65,7 +74,7 @@ int is_elf(int *fd, char *elf_file, Elfw(Ehdr) * header)
 		exit(98);
 	}
 
-	bytes_read = read(*fd, header, sizeof(header));
+	bytes_read = read(*fd, header, sizeof(Elfw(Ehdr)));
 	if (bytes_read == -1)
 	{
 		dprintf(2, "elf_header: Error: Input file '%s' is not readable.",
@@ -123,6 +132,7 @@ void print_class(Elfw(Ehdr) header)
 		printf("ELF64\n");
 	}
 }
+
 /**
  * print_data - print endianness of file.
  *
@@ -144,6 +154,7 @@ void print_data(Elfw(Ehdr) header)
 		printf("2's complement, big endian\n");
 	}
 }
+
 /**
  * print_version - print the ELF header version number.
  *
@@ -160,11 +171,8 @@ void print_version(Elfw(Ehdr) header)
 	{
 		printf("%i (current)\n", EV_CURRENT);
 	}
-	else
-	{
-		exit(98);
-	}
 }
+
 /**
  * print_OS_ABI - print the operating system and
  *                ABI to which object is targeted.
@@ -254,17 +262,35 @@ void print_type(Elfw(Ehdr) header)
 }
 
 /**
- * print_EPA - print the entry point address, the memory address where
- *             the program begins execution after being loaded into memory.
+ * print_EPA_64 - print entry point address (64-bit system),
+ *                memory address where the program begins
+ *                execution after being loaded into memory.
  *
  * @header: ELF file header.
  *
  * Return: Nothing.
  */
-void print_EPA(Elfw(Ehdr) header)
+void print_EPA_64(Elfw(Ehdr) header)
 {
 	char space = ' ';
 
 	printf("%2cEntry point address:%15c", space, space);
-	printf("0x%lx\n", header.e_entry);
+	printf("0x%lx\n", (Elf64_Addr) header.e_entry);
+}
+
+/**
+ * print_EPA_32 - print entry point address (32-bit system),
+ *                memory address where the program begins
+ *                execution after being loaded into memory.
+ *
+ * @header: ELF file header.
+ *
+ * Return: Nothing.
+ */
+void print_EPA_32(Elfw(Ehdr) header)
+{
+	char space = ' ';
+
+	printf("%2cEntry point address:%15c", space, space);
+	printf("0x%x\n", (Elf32_Addr) header.e_entry);
 }
