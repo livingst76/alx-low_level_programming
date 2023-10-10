@@ -294,7 +294,28 @@ void print_EPA_64(Elfw(Ehdr) header)
 void print_EPA_32(Elfw(Ehdr) header)
 {
 	char space = ' ';
+	int hexgit = 0, tmp = 0, reverse = 0;
 
 	printf("%2cEntry point address:%15c", space, space);
-	printf("0x%x\n", (Elf32_Addr) header.e_entry);
+	if (header.e_ident[EI_DATA] == 1)
+	{
+		/* Typecasting done because of GCC compiler error; has no effect. */
+		/* This is because the struct is predefined according to its bit. */
+		/* However, since my system is 62-bit, it assumes an error */
+		/* The format specifier for a 32-bit is quite different from 64-bit's */
+		printf("0x%x\n", (Elf32_Addr) header.e_entry);
+	}
+	else if (header.e_ident[EI_DATA] == 2)
+	{
+		tmp = header.e_entry;
+		while (tmp)
+		{
+			/* hexgit is kind of like saying digit:) */
+			hexgit = tmp % 16;
+			tmp /= 16;
+			reverse += hexgit;
+			reverse *= 16;
+		}
+		printf("0x%x\n", reverse);
+	}
 }
