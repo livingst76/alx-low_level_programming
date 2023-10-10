@@ -294,7 +294,7 @@ void print_EPA_64(Elfw(Ehdr) header)
 void print_EPA_32(Elfw(Ehdr) header)
 {
 	char space = ' ';
-	int hexgit = 0, tmp = 0, reverse = 0;
+	int tmp = 0, reversed_address = 0;
 
 	printf("%2cEntry point address:%15c", space, space);
 	if (header.e_ident[EI_DATA] == 1)
@@ -307,15 +307,13 @@ void print_EPA_32(Elfw(Ehdr) header)
 	}
 	else if (header.e_ident[EI_DATA] == 2)
 	{
+		/* Reverse bytes and convert to hexadecimal */
 		tmp = header.e_entry;
-		while (tmp)
-		{
-			/* hexgit is kind of like saying digit:) */
-			hexgit = tmp % 16;
-			tmp /= 16;
-			reverse += hexgit;
-			reverse *= 16;
-		}
-		printf("0x%x\n", reverse);
+		reversed_address |= (tmp & 0xFF) << 24;
+		reversed_address |= ((tmp >> 8) & 0xFF) << 16;
+		reversed_address |= ((tmp >> 16) & 0xFF) << 8;
+		reversed_address |= ((tmp >> 24) & 0xFF);
+
+		printf("0x%x\n", reversed_address);
 	}
 }
