@@ -251,7 +251,7 @@ void print_type(Elfw(Ehdr) header)
 	{
 		printf("REL (Relocatable file)\n");
 	}
-	else if (header.e_type == ET_EXEC)
+	else if (header.e_type == ET_EXEC || header.e_type == 512)
 	{
 		printf("EXEC (Executable file)\n");
 	}
